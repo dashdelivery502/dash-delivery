@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dash Delivery</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background-color: #f4f6f8; color: #333; padding-bottom: 120px; }
+    
+    header { background: #e63946; color: white; padding: 18px 15px; text-align: center; font-size: 1.4rem; font-weight: bold; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .container { max-width: 500px; margin: 0 auto; padding: 15px; }
+    
+    .card { background: white; border-radius: 12px; padding: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: transform 0.1s; }
+    .card:active { transform: scale(0.98); }
+    .card-left { display: flex; align-items: center; gap: 12px; width: 70%; }
+    
+    .rest-img { width: 75px; height: 75px; object-fit: cover; border-radius: 10px; background: #eee; flex-shrink: 0; }
+    .prod-img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; background: #eee; flex-shrink: 0; }
+    
+    .card-info h3 { font-size: 1.05rem; margin-bottom: 4px; color: #1d3557; }
+    .card-info p { color: #666; font-size: 0.82rem; line-height: 1.2; }
+    .price { color: #e63946; font-weight: bold; font-size: 1rem; margin-top: 4px; }
+    
+    .btn-add { background: #1d3557; color: white; border: none; padding: 8px 14px; border-radius: 8px; font-weight: bold; cursor: pointer; flex-shrink: 0; }
+    .btn-back { background: #6c757d; color: white; border: none; padding: 8px 12px; border-radius: 6px; margin-bottom: 15px; cursor: pointer; display: none; }
+
+    /* Barra del Carrito */
+    .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #ddd; padding: 12px 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; max-width: 500px; margin: 0 auto; z-index: 20; }
+    .btn-ver-carrito { background: #1d3557; color: white; border: none; padding: 10px 14px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; cursor: pointer; margin-right: 8px; }
+    .btn-checkout { background: #25D366; color: white; border: none; padding: 12px 16px; border-radius: 8px; font-weight: bold; font-size: 0.95rem; cursor: pointer; }
+
+    /* Modales */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 100; justify-content: center; align-items: center; }
+    .modal-content { background: white; width: 90%; max-width: 400px; padding: 20px; border-radius: 12px; max-height: 80vh; overflow-y: auto; }
+    .modal-content h3 { margin-bottom: 15px; color: #1d3557; }
+    .modal-content input { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; }
+    .modal-btns { display: flex; gap: 10px; margin-top: 15px; }
+    
+    .btn-send { background: #25D366; color: white; border: none; padding: 10px; border-radius: 6px; width: 100%; font-weight: bold; cursor: pointer; }
+    .btn-cancel { background: #ccc; color: #333; border: none; padding: 10px; border-radius: 6px; width: 100%; cursor: pointer; }
+
+    /* Items en el modal del carrito */
+    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+    .btn-delete { background: #e63946; color: white; border: none; width: 28px; height: 28px; border-radius: 50%; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+
+  <header id="header-title">🛵 Dash Delivery</header>
+
+  <div class="container">
+    <button class="btn-back" id="btn-back" onclick="mostrarRestaurantes()">← Volver a Restaurantes</button>
+
+    <!-- VISTA 1: Lista de Restaurantes -->
+    <div id="vista-restaurantes">
+      
+      <div class="card" onclick="verMenu('RAPIDOS DE ORIENTE')">
+        <div class="card-left">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=300" class="rest-img" alt="Rapidos de Oriente">
+          <div class="card-info">
+            <h3>RAPIDOS DE ORIENTE</h3>
+            <p>Almuerzos, hamburguesas y bebidas</p>
+          </div>
+        </div>
+        <button class="btn-add">Ver Menú</button>
+      </div>
+
+      <div class="card" onclick="verMenu('TAQUERO MUCHO')">
+        <div class="card-left">
+          <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=300" class="rest-img" alt="Taquero Mucho">
+          <div class="card-info">
+            <h3>TAQUERO MUCHO</h3>
+            <p>Tacos de birria, tacos mexicanos y pollo frito</p>
+          </div>
+        </div>
+        <button class="btn-add">Ver Menú</button>
+      </div>
+
+      <div class="card" onclick="verMenu('LA MARISCADA')">
+        <div class="card-left">
+          <img src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=300" class="rest-img" alt="La Mariscada">
+          <div class="card-info">
+            <h3>LA MARISCADA</h3>
+            <p>Ceviches, mariscos y bebidas preparadas</p>
+          </div>
+        </div>
+        <button class="btn-add">Ver Menú</button>
+      </div>
+
+    </div>
+
+    <!-- VISTA 2: Menú de Productos -->
+    <div id="vista-menu" style="display: none;"></div>
+  </div>
+
+  <!-- BARRA INFERIOR DEL CARRITO -->
+  <div class="cart-bar">
+    <div>
+      <small>Total (<span id="cant-txt">0</span>):</small>
+      <div style="font-size: 1.1rem; font-weight: bold; color: #e63946;" id="total-txt">Q0.00</div>
+    </div>
+    <div style="display: flex;">
+      <button class="btn-ver-carrito" onclick="verDetalleCarrito()">🛒 Carrito</button>
+      <button class="btn-checkout" onclick="abrirFormulario()">Pedir</button>
+    </div>
+  </div>
+
+  <!-- MODAL: DETALLE DEL CARRITO Y ELIMINAR ITEMS -->
+  <div class="modal" id="modal-carrito">
+    <div class="modal-content">
+      <h3>Tu Pedido Actual</h3>
+      <div id="lista-carrito">
+        <!-- Se llena con JS -->
+      </div>
+      <div style="margin-top: 15px; font-weight: bold; text-align: right;" id="total-modal-txt">
+        Total: Q0.00
+      </div>
+      <div class="modal-btns">
+        <button class="btn-cancel" onclick="cerrarModalCarrito()">Cerrar</button>
+        <button class="btn-send" onclick="cerrarModalCarrito(); abrirFormulario();">Continuar a Datos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FORMULARIO DE CLIENTE -->
+  <div class="modal" id="modal-cliente">
+    <div class="modal-content">
+      <h3>Datos de Entrega</h3>
+      <input type="text" id="nombre" placeholder="Tu Nombre">
+      <input type="text" id="direccion" placeholder="Dirección / Barrio / Aldea">
+      <input type="text" id="referencia" placeholder="Punto de referencia (ej. Frente a tienda...)">
+      
+      <div class="modal-btns">
+        <button class="btn-cancel" onclick="cerrarFormulario()">Cancelar</button>
+        <button class="btn-send" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tu número de WhatsApp configurado
+    const MI_WHATSAPP = "50233030158"; 
+
+    const menus = {
+      'RAPIDOS DE ORIENTE': [
+        { id: 1, nombre: 'Hamburguesa Doble', precio: 35, imagen: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300' },
+        { id: 2, nombre: 'Papas Fritas', precio: 15, imagen: 'https://images.unsplash.com/photo-1576107232684-1279f390859f?w=300' }
+      ],
+      'TAQUERO MUCHO': [
+        { id: 3, nombre: 'Orden de Tacos de Birria', precio: 30, imagen: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=300' },
+        { id: 4, nombre: 'Combo Pollo Frito', precio: 25, imagen: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=300' }
+      ],
+      'LA MARISCADA': [
+        { id: 5, nombre: 'Ceviche Mixto Mediano', precio: 55, imagen: 'https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=300' },
+        { id: 6, nombre: 'Ceviche Mixto Grande', precio: 80, imagen: 'https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?w=300' },
+        { id: 7, nombre: 'Michelada Especial', precio: 30, imagen: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=300' }
+      ]
+    };
+
+    let carrito = [];
+    let restauranteActual = "";
+
+    function verMenu(nombreRestaurante) {
+      restauranteActual = nombreRestaurante;
+      document.getElementById('header-title').innerText = nombreRestaurante;
+      document.getElementById('vista-restaurantes').style.display = 'none';
+      document.getElementById('vista-menu').style.display = 'block';
+      document.getElementById('btn-back').style.display = 'block';
+
+      let menuHTML = "";
+      menus[nombreRestaurante].forEach(p => {
+        let fotoHTML = p.imagen ? `<img src="${p.imagen}" class="prod-img" alt="${p.nombre}">` : '';
+
+        menuHTML += `
+          <div class="card">
+            <div class="card-left">
+              ${fotoHTML}
+              <div class="card-info">
+                <h3>${p.nombre}</h3>
+                <div class="price">Q${p.precio}.00</div>
+              </div>
+            </div>
+            <button class="btn-add" onclick="agregarAlCarrito('${p.nombre}', ${p.precio})">+ Agregar</button>
+          </div>
+        `;
+      });
+      document.getElementById('vista-menu').innerHTML = menuHTML;
+    }
+
+    function mostrarRestaurantes() {
+      document.getElementById('header-title').innerText = '🛵 Dash Delivery';
+      document.getElementById('vista-restaurantes').style.display = 'block';
+      document.getElementById('vista-menu').style.display = 'none';
+      document.getElementById('btn-back').style.display = 'none';
+    }
+
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio, restaurante: restauranteActual });
+      actualizarTotal();
+    }
+
+    function eliminarDelCarrito(index) {
+      carrito.splice(index, 1);
+      actualizarTotal();
+      verDetalleCarrito(); // Recarga la lista en el modal
+    }
+
+    function actualizarTotal() {
+      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      document.getElementById('total-txt').innerText = `Q${total}.00`;
+      document.getElementById('cant-txt').innerText = carrito.length;
+    }
+
+    function verDetalleCarrito() {
+      if(carrito.length === 0) {
+        alert("El carrito está vacío.");
+        return;
+      }
+
+      let html = "";
+      let total = 0;
+
+      carrito.forEach((item, index) => {
+        total += item.precio;
+        html += `
+          <div class="cart-item">
+            <div>
+              <strong>${item.nombre}</strong><br>
+              <small style="color: #666;">${item.restaurante} - Q${item.precio}.00</small>
+            </div>
+            <button class="btn-delete" onclick="eliminarDelCarrito(${index})">✕</button>
+          </div>
+        `;
+      });
+
+      document.getElementById('lista-carrito').innerHTML = html;
+      document.getElementById('total-modal-txt').innerText = `Total: Q${total}.00`;
+      document.getElementById('modal-carrito').style.display = 'flex';
+    }
+
+    function cerrarModalCarrito() {
+      document.getElementById('modal-carrito').style.display = 'none';
+    }
+
+    function abrirFormulario() {
+      if(carrito.length === 0) {
+        alert("Por favor agrega al menos un producto al carrito.");
+        return;
+      }
+      document.getElementById('modal-cliente').style.display = 'flex';
+    }
+
+    function cerrarFormulario() {
+      document.getElementById('modal-cliente').style.display = 'none';
+    }
+
+    function enviarWhatsApp() {
+      let nombre = document.getElementById('nombre').value.trim();
+      let direccion = document.getElementById('direccion').value.trim();
+      let referencia = document.getElementById('referencia').value.trim();
+
+      if(!nombre || !direccion) {
+        alert("Por favor ingresa tu nombre y dirección.");
+        return;
+      }
+
+      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      
+      let mensaje = `*¡NUEVO PEDIDO DE DELIVERY!* 🛵\n\n`;
+      mensaje += `----------------------------------\n`;
+      carrito.forEach(item => {
+        mensaje += `• ${item.nombre} (${item.restaurante}) - Q${item.precio}.00\n`;
+      });
+      mensaje += `----------------------------------\n`;
+      mensaje += `*TOTAL A PAGAR: Q${total}.00*\n\n`;
+      mensaje += `*DATOS DE ENTREGA:*\n`;
+      mensaje += `👤 *Cliente:* ${nombre}\n`;
+      mensaje += `📍 *Dirección:* ${direccion}\n`;
+      if(referencia) mensaje += `🏠 *Referencia:* ${referencia}\n`;
+
+      let url = `https://wa.me/${MI_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+      cerrarFormulario();
+    }
+  </script>
+</body>
+</html>
