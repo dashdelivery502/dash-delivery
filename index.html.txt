@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DASH DELIVERY </title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background-color: #f4f6f8; color: #333; padding-bottom: 100px; }
+    
+    /* Encabezado */
+    header { background: #e63946; color: white; padding: 15px; text-align: center; font-size: 1.3rem; font-weight: bold; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    
+    .container { max-width: 500px; margin: 0 auto; padding: 15px; }
+    
+    /* Tarjetas de Restaurante / Menú */
+    .card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; }
+    .card-info h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .card-info p { color: #666; font-size: 0.9rem; }
+    .price { color: #e63946; font-weight: bold; font-size: 1rem; margin-top: 5px; }
+    
+    /* Botones */
+    .btn-add { background: #1d3557; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    .btn-add:active { transform: scale(0.95); }
+    .btn-back { background: #6c757d; color: white; border: none; padding: 8px 12px; border-radius: 6px; margin-bottom: 15px; cursor: pointer; display: none; }
+
+    /* Barra inferior del Carrito */
+    .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #ddd; padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; max-width: 500px; margin: 0 auto; }
+    .btn-checkout { background: #25D366; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; }
+
+    /* Modal de Datos del Cliente */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 100; justify-content: center; align-items: center; }
+    .modal-content { background: white; width: 90%; max-width: 400px; padding: 20px; border-radius: 12px; }
+    .modal-content h3 { margin-bottom: 15px; }
+    .modal-content input { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; }
+    .modal-btns { display: flex; gap: 10px; }
+    .btn-send { background: #25D366; color: white; border: none; padding: 10px; border-radius: 6px; width: 100%; font-weight: bold; cursor: pointer; }
+    .btn-cancel { background: #ccc; color: #333; border: none; padding: 10px; border-radius: 6px; width: 100%; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <header id="header-title">Elige un Restaurante</header>
+
+  <div class="container">
+    <button class="btn-back" id="btn-back" onclick="mostrarRestaurantes()">← Volver a Restaurantes</button>
+
+    <!-- VISTA 1: Lista de Restaurantes -->
+    <div id="vista-restaurantes">
+      <div class="card" onclick="verMenu('RAPIDOS DE ORIENTE')">
+        <div class="card-info">
+          <h3>RAPIDOS DE ORIENTE</h3>
+          <p>Almuerzos, hamburguesas y bebidas</p>
+        </div>
+        <button class="btn-add">Ver Menú</button>
+      </div>
+
+      <div class="card" onclick="verMenu('TAQUERO MUCHO')">
+        <div class="card-info">
+          <h3>TAQUERO MUCHO</h3>
+          <p>Tacos de birria,tacos mexicanos y pollo frito</p>
+        </div>
+        <button class="btn-add">Ver Menú</button>
+      </div>
+    </div>
+
+    <!-- VISTA 2: Menú de Productos (Oculto al inicio) -->
+    <div id="vista-menu" style="display: none;">
+      <!-- Se llena dinámicamente con JavaScript -->
+    </div>
+  </div>
+
+  <!-- Barra flotante del Carrito -->
+  <div class="cart-bar">
+    <div>
+      <small>Total a pagar:</small>
+      <div style="font-size: 1.2rem; font-weight: bold; color: #e63946;" id="total-txt">Q0.00</div>
+    </div>
+    <button class="btn-checkout" onclick="abrirFormulario()">Confirmar Pedido</button>
+  </div>
+
+  <!-- Formulario de Entrega -->
+  <div class="modal" id="modal-cliente">
+    <div class="modal-content">
+      <h3>Datos de Entrega</h3>
+      <input type="text" id="nombre" placeholder="Tu Nombre">
+      <input type="text" id="direccion" placeholder="Dirección / Barrio / Aldea">
+      <input type="text" id="referencia" placeholder="Punto de referencia (ej. Frente a tienda...)">
+      
+      <div class="modal-btns">
+        <button class="btn-cancel" onclick="cerrarFormulario()">Cancelar</button>
+        <button class="btn-send" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configura tu número de WhatsApp aquí (con código de país sin el signo +)
+    const MI_WHATSAPP = "50233030158"; 
+
+    // Base de datos de prueba
+    const menus = {
+      'RAPIDOS DE ORIENTE': [
+        { id: 1, nombre: 'Hamburguesa Doble', precio: 35 },
+        { id: 2, nombre: 'Papas Locas', precio: 15 },
+        { id: 3, nombre: 'Gaseosa 355ml', precio: 5 }
+      ],
+      'TAQUERO MUCHO': [
+        { id: 4, nombre: 'Taco de Birria', precio: 35 },
+        { id: 5, nombre: 'taco de asada', precio: 25 }
+      ]
+    };
+
+    let carrito = [];
+    let restauranteActual = "";
+
+    function verMenu(nombreRestaurante) {
+      restauranteActual = nombreRestaurante;
+      document.getElementById('header-title').innerText = nombreRestaurante;
+      document.getElementById('vista-restaurantes').style.display = 'none';
+      document.getElementById('vista-menu').style.display = 'block';
+      document.getElementById('btn-back').style.display = 'block';
+
+      let menuHTML = "";
+      menus[nombreRestaurante].forEach(p => {
+        menuHTML += `
+          <div class="card">
+            <div class="card-info">
+              <h3>${p.nombre}</h3>
+              <div class="price">Q${p.precio}.00</div>
+            </div>
+            <button class="btn-add" onclick="agregarAlCarrito('${p.nombre}', ${p.precio})">+ Agregar</button>
+          </div>
+        `;
+      });
+      document.getElementById('vista-menu').innerHTML = menuHTML;
+    }
+
+    function mostrarRestaurantes() {
+      document.getElementById('header-title').innerText = 'Elige un Restaurante';
+      document.getElementById('vista-restaurantes').style.display = 'block';
+      document.getElementById('vista-menu').style.display = 'none';
+      document.getElementById('btn-back').style.display = 'none';
+    }
+
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio, restaurante: restauranteActual });
+      actualizarTotal();
+    }
+
+    function actualizarTotal() {
+      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      document.getElementById('total-txt').innerText = `Q${total}.00`;
+    }
+
+    function abrirFormulario() {
+      if(carrito.length === 0) {
+        alert("Por favor agrega al menos un producto al carrito.");
+        return;
+      }
+      document.getElementById('modal-cliente').style.display = 'flex';
+    }
+
+    function cerrarFormulario() {
+      document.getElementById('modal-cliente').style.display = 'none';
+    }
+
+    function enviarWhatsApp() {
+      let nombre = document.getElementById('nombre').value.trim();
+      let direccion = document.getElementById('direccion').value.trim();
+      let referencia = document.getElementById('referencia').value.trim();
+
+      if(!nombre || !direccion) {
+        alert("Por favor ingresa tu nombre y dirección.");
+        return;
+      }
+
+      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      
+      let mensaje = `*¡NUEVO PEDIDO DE DELIVERY!* 🛵\n\n`;
+      mensaje += `*Restaurante:* ${restauranteActual}\n`;
+      mensaje += `----------------------------------\n`;
+      carrito.forEach(item => {
+        mensaje += `• ${item.nombre} - Q${item.precio}.00\n`;
+      });
+      mensaje += `----------------------------------\n`;
+      mensaje += `*TOTAL A PAGAR: Q${total}.00*\n\n`;
+      mensaje += `*DATOS DE ENTREGA:*\n`;
+      mensaje += `👤 *Cliente:* ${nombre}\n`;
+      mensaje += `📍 *Dirección:* ${direccion}\n`;
+      if(referencia) mensaje += `🏠 *Referencia:* ${referencia}\n`;
+
+      let url = `https://wa.me/${MI_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+      cerrarFormulario();
+    }
+  </script>
+</body>
+</html>
