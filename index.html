@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título y SEO para Google en Nueva Santa Rosa, Santa Rosa -->
+    <title>Dash Delivery 502 | Envíos y Menú Digital en Nueva Santa Rosa, Santa Rosa</title>
+    <meta name="description" content="Haz tus pedidos en línea en Nueva Santa Rosa, Santa Rosa con Dash Delivery 502. Comida a domicilio, mandados y fletes rápidos.">
+    <meta name="keywords" content="Dash Delivery, Dash Delivery 502, Nueva Santa Rosa, Santa Rosa, Guatemala, envíos a domicilio, restaurante Nueva Santa Rosa, fletes, mandados">
+    <meta name="robots" content="index, follow">
+
+    <!-- Estilos de la Aplicación -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+            padding-bottom: 80px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #e63946, #d62828);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .seccion-titulo {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #1d3557;
+            border-bottom: 2px solid #e63946;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .grid-restaurantes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card-restaurante {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card-restaurante:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .card-restaurante img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid #e63946;
+        }
+
+        .card-restaurante h3 {
+            font-size: 1rem;
+            color: #1d3557;
+        }
+
+        .menu-seccion {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .btn-volver {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+        }
+
+        .producto-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            gap: 10px;
+        }
+
+        .producto-card:last-child {
+            border-bottom: none;
+        }
+
+        .producto-detalle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .producto-img {
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .producto-info h4 {
+            font-size: 0.95rem;
+            color: #2b2d42;
+            text-transform: capitalize;
+        }
+
+        .producto-info p {
+            font-size: 0.85rem;
+            color: #2a9d8f;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
+        .btn-agregar {
+            background: #2a9d8f;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* Barra flotante del carrito */
+        .carrito-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1d3557;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+
+        .btn-ver-carrito {
+            background: #e63946;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Modal / Ventana del Carrito */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-contenido {
+            background: white;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 12px;
+            padding: 20px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn-cerrar {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .btn-eliminar {
+            background: none;
+            border: none;
+            color: #e63946;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        /* Formulario de datos de cliente */
+        .datos-cliente {
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .datos-cliente h4 {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            color: #1d3557;
+        }
+
+        .datos-cliente input {
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .btn-pedir-whatsapp {
+            width: 100%;
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dash Delivery 502</h1>
+        <p>Envíos y Pedidos Rápidos en Nueva Santa Rosa</p>
+    </header>
+
+    <div class="container">
+        <!-- Lista de Restaurantes -->
+        <div id="seccion-restaurantes">
+            <h2 class="seccion-titulo">Restaurantes Disponibles</h2>
+            <div class="grid-restaurantes">
+                <div class="card-restaurante" onclick="abrirMenu('LA MARISCADA')">
+                    <img src="https://images.unsplash.com/photo-1535400255456-984241443b29?w=300" alt="LA MARISCADA">
+                    <h3>LA MARISCADA</h3>
+                </div>
+                <div class="card-restaurante" onclick="abrirMenu('LOS BORDOS RANCH')">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300" alt="LOS BORDOS RANCH">
+                    <h3>LOS BORDOS RANCH</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú de Productos (Se activa al hacer clic) -->
+        <div id="seccion-menu" class="menu-seccion">
+            <button class="btn-volver" onclick="volverAInicio()">← Volver a Restaurantes</button>
+            <h2 id="titulo-restaurante" class="seccion-titulo">Menú</h2>
+            <div id="lista-productos"></div>
+        </div>
+    </div>
+
+    <!-- Barra Inferior del Carrito -->
+    <div class="carrito-bar">
+        <div>
+            <span>Total: <strong id="total-txt">Q0.00</strong></span> | 
+            <small><span id="cant-txt">0</span> ítems</small>
+        </div>
+        <button class="btn-ver-carrito" onclick="abrirModalCarrito()">Ver Carrito</button>
+    </div>
+
+    <!-- Modal del Carrito -->
+    <div id="modal-carrito" class="modal">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <h3>Tu Pedido - Dash Delivery</h3>
+                <button class="btn-cerrar" onclick="cerrarModalCarrito()">&times;</button>
+            </div>
+            
+            <div id="carrito-lista"></div>
+
+            <!-- Formulario para Nombre, Dirección y Referencia -->
+            <div id="seccion-datos" class="datos-cliente" style="display:none;">
+                <h4>Datos de Entrega:</h4>
+                <input type="text" id="cliente-nombre" placeholder="Tu Nombre" oninput="actualizarBotonWhatsApp()">
+                <input type="text" id="cliente-direccion" placeholder="Dirección de Entrega" oninput="actualizarBotonWhatsApp()">
+                <input type="text" id="cliente-referencia" placeholder="Referencia (ej. Portón rojo)" oninput="actualizarBotonWhatsApp()">
+            </div>
+
+            <a id="btn-whatsapp" href="#" target="_blank" class="btn-pedir-whatsapp" style="display:none;">
+                📲 Confirmar Pedido por WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Lógica de la Aplicación -->
+    <script>
+        // Arreglo del carrito y restaurante activo
+        let carrito = [];
+        let restauranteActual = "";
+
+        // Menús de restaurantes con imágenes
+        const menus = {
+            "LA MARISCADA": [
+                { nombre: "ceviche mixto mediano", precio: 50, imagen: "https://images.unsplash.com/photo-1535400255456-984241443b29?w=200" },
+                { nombre: "ceviche mixto grande", precio: 90, imagen: "https://images.unsplash.com/photo-1535400255456-984241443b29?w=200" },
+                { nombre: "ceviche de camaron mediano", precio: 50, imagen: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200" },
+                { nombre: "michelada gallo", precio: 30, imagen: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=200" },
+                { nombre: "Gaseosa en lata", precio: 5, imagen: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=200" }
+            ],
+            "LOS BORDOS RANCH": [
+                { nombre: "Orden de Tacos (3)", precio: 35, imagen: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200" },
+                { nombre: "Hamburguesa simple con papas", precio: 40, imagen: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" },
+                { nombre: "Combo hamburguesa texana", precio: 70, imagen: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=200" },
+                { nombre: "Alitas en barbacoa", precio: 40, imagen: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=200" },
+                { nombre: "Horchata Fresca", precio: 10, imagen: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=200" }
+            ]
+        };
+
+        function abrirMenu(nombreRestaurante) {
+            restauranteActual = nombreRestaurante;
+            document.getElementById('seccion-restaurantes').style.display = 'none';
+            document.getElementById('seccion-menu').style.display = 'block';
+            document.getElementById('titulo-restaurante').textContent = nombreRestaurante;
+
+            const contenedor = document.getElementById('lista-productos');
+            contenedor.innerHTML = "";
+
+            const productos = menus[nombreRestaurante] || [];
+            productos.forEach(prod => {
+                contenedor.innerHTML += `
+                    <div class="producto-card">
+                        <div class="producto-detalle">
+                            <img src="${prod.imagen}" alt="${prod.nombre}" class="producto-img">
+                            <div class="producto-info">
+                                <h4>${prod.nombre}</h4>
+                                <p>Q${prod.precio}.00</p>
+                            </div>
+                        </div>
+                        <button class="btn-agregar" onclick="agregarAlCarrito('${prod.nombre}', ${prod.precio})">+ Agregar</button>
+                    </div>
+                `;
+            });
+        }
+
+        function volverAInicio() {
+            document.getElementById('seccion-menu').style.display = 'none';
+            document.getElementById('seccion-restaurantes').style.display = 'block';
+        }
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio, restaurante: restauranteActual });
+            actualizarTotal();
+        }
+
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarTotal();
+            verDetalleCarrito();
+        }
+
+        function actualizarTotal() {
+            let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+            document.getElementById('total-txt').innerText = `Q${total}.00`;
+            document.getElementById('cant-txt').innerText = carrito.length;
+        }
+
+        function abrirModalCarrito() {
+            document.getElementById('modal-carrito').style.display = 'flex';
+            verDetalleCarrito();
+        }
+
+        function cerrarModalCarrito() {
+            document.getElementById('modal-carrito').style.display = 'none';
+        }
+
+        function verDetalleCarrito() {
+            const contenedorLista = document.getElementById('carrito-lista');
+            const seccionDatos = document.getElementById('seccion-datos');
+            const btnWhatsapp = document.getElementById('btn-whatsapp');
+
+            if (carrito.length === 0) {
+                contenedorLista.innerHTML = '<p style="text-align:center; padding:20px; color:#777;">El carrito está vacío</p>';
+                seccionDatos.style.display = 'none';
+                btnWhatsapp.style.display = 'none';
+                return;
+            }
+
+            let html = "";
+            carrito.forEach((item, index) => {
+                html += `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${item.nombre}</strong><br>
+                            <small style="color:#666;">${item.restaurante} - Q${item.precio}.00</small>
+                        </div>
+                        <button class="btn-eliminar" onclick="eliminarDelCarrito(${index})">🗑️</button>
+                    </div>
+                `;
+            });
+
+            contenedorLista.innerHTML = html;
+            seccionDatos.style.display = 'block';
+            btnWhatsapp.style.display = 'block';
+            
+            actualizarBotonWhatsApp();
+        }
+
+        function actualizarBotonWhatsApp() {
+            const btnWhatsapp = document.getElementById('btn-whatsapp');
+            const cliente = document.getElementById('cliente-nombre').value.trim() || "No especificado";
+            const direccion = document.getElementById('cliente-direccion').value.trim() || "Nueva Santa Rosa";
+            const referencia = document.getElementById('cliente-referencia').value.trim() || "Ninguna";
+
+            let total = 0;
+            let mensaje = "¡NUEVO PEDIDO DE DELIVERY! 🛵\n\n------------------------------\n";
+
+            carrito.forEach(item => {
+                total += item.precio;
+                mensaje += `• ${item.nombre} (${item.restaurante}) - Q${item.precio}.00\n`;
+            });
+
+            mensaje += `------------------------------\n`;
+            mensaje += `*TOTAL A PAGAR: Q${total}.00*\n\n`;
+            mensaje += `*DATOS DE ENTREGA:*\n`;
+            mensaje += `👤 *Cliente:* ${cliente}\n`;
+            mensaje += `📍 *Dirección:* ${direccion}\n`;
+            mensaje += `🏠 *Referencia:* ${referencia}`;
+
+            const numeroTelefono = "50253062335";
+            btnWhatsapp.href = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+        }
+    </script>
+</body>
+</html>
