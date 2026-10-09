@@ -98,9 +98,12 @@ header p {
     border-color: #FF6600;
 }
 
-.card-categoria-principal .icono {
-    font-size: 2.2rem;
-    margin-bottom: 8px;
+.img-icono-categoria {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px auto;
 }
 
 .card-categoria-principal h3 {

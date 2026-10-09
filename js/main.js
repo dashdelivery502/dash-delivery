@@ -15,11 +15,12 @@ const negociosPorCategoria = {
         { nombre: "POLLO GRANJERO", envioGratis: false, img: "https://tse2.mm.bing.net/th/id/OIP.o0i_j3gt56YaiL7XiTpfgAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
         { nombre: "DOMINOS EXPRESS", envioGratis: false, img: "https://tse4.mm.bing.net/th/id/OIP.y0F_StlyjW83DR4e5klmZwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
         { nombre: "CARNITAS EL GORDO", envioGratis: false, img: "https://static.vecteezy.com/system/resources/previews/048/006/291/large_2x/pork-dumplings-chef-free-vector.jpg" },
+        { nombre: "LA NEVERIA", envioGratis: false, img: "img/neveria.webp" },
         { nombre: "PASTELERÍA DULCE DELICIA", envioGratis: false, img: "https://img.freepik.com/vector-premium/logotipo-pasteleria-fondo-blanco_1197524-14358.jpg" }
     ],
     "farmacia": [
         { nombre: "FARMACIA MI SALUD", envioGratis: true, img: "https://static.vecteezy.com/system/resources/previews/006/303/724/original/pharmacy-logo-template-icon-symbol-design-free-vector.jpg" },
-        { nombre: "PROTEÍNAS & FIT", envioGratis: false, img: "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=300" }
+        { nombre: "BELLO OASIS", envioGratis: false, img: "img/bello-oasis.webp" }
     ],
     "mercado": [
         { nombre: "VERDULERÍA FRESH", envioGratis: true, img: "https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=300" },
@@ -42,9 +43,10 @@ const infoRestaurantes = {
     "POLLO GRANJERO": { envioGratis: false },
     "DOMINOS EXPRESS": { envioGratis: false },
     "CARNITAS EL GORDO": { envioGratis: false },
+    "LA NEVERIA": { envioGratis: false },
     "PASTELERÍA DULCE DELICIA": { envioGratis: false },
     "FARMACIA MI SALUD": { envioGratis: true },
-    "PROTEÍNAS & FIT": { envioGratis: false },
+    "BELLO OASIS": { envioGratis: false },
     "VERDULERÍA FRESH": { envioGratis: true },
     "CARNICERIA EL RANCHO": { envioGratis: false },
     "MERCADITO ORIENTE": { envioGratis: false },
@@ -136,6 +138,14 @@ const menus = {
         { nombre: "Docena de Longaniza", precio: 12, descripcion: "12 longanizas asadas con hierbas aromáticas y ajo listas para disfrutar.", imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300" },
         { nombre: "1 litro de Pepsi", precio: 8, descripcion: "Botella helada de 1 litro.", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" },
         { nombre: "gaseosa en lata", precio: 6, descripcion: "Lata personal de gaseosa salvavidas surtida.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg" }
+    ], 
+        "LA NEVERIA": [
+        { nombre: "Helado de cono", precio: 17, descripcion: "", imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?w=300" },
+        { nombre: "Banana split", precio: 25, descripcion: " ", imagen: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300" },
+        { nombre: "Sundae", precio: 22, descripcion: " ", imagen: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=300" },
+        { nombre: "Pastel de Helado pequeño", precio: 75, descripcion: "de 4 a 6 porciones segun medida", imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300" },
+        { nombre: "Pastel de Helado Mediano", precio: 95, descripcion: "pastel de 8 a 12 porciones segun medida", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" },
+        { nombre: "Pastel de Helado Grande", precio: 140, descripcion: "pastel de 16 a 20 porciones segun medida", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg" }
     ],
     "PASTELERÍA DULCE DELICIA": [
         { nombre: "Pastel de Chocolate (Entero)", precio: 120, descripcion: "Pastel artesanal grande de bizcocho húmedo de chocolate, relleno de fudge y cubierto de betún.", imagen: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300" },
@@ -154,9 +164,13 @@ const menus = {
         { nombre: "Toallas Humedas Family Choice", precio: 14, descripcion: "presentacion extra larga con 80und para el uso diario en bebes y adultos", imagen: "img/toallitas.webp" },
         { nombre: "Suero Oral Hidravida", precio: 18, descripcion: "Sabores surtidos, indica cual es tu favorito luego de realizar el pedido", imagen: "img/hidravida.webp" }
     ],
-    "PROTEÍNAS & FIT": [
-        { nombre: "Whey Protein 2lbs", precio: 280, descripcion: "Proteína concentrada de suero de leche enriquecida con aminoácidos BCAA para desarrollo muscular.", imagen: "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=300" },
-        { nombre: "Creatina Monohidratada 300g", precio: 190, descripcion: "Suplemento en polvo 100% puro para optimizar rendimiento físico, fuerza y potencia.", imagen: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=300" }
+    "BELLO OASIS": [
+        { nombre: "Shampoo Calypso Keratina", precio: 25, descripcion: "shampoo de 1 litro repara,nutre,protege y alisa tu cabello", imagen: "img/calypso-keratina.webp" },
+        { nombre: "Shampoo Calypso Anticaspa", precio: 25, descripcion: "shampoo de 1 litro anti caspa", imagen: "img/calypso-anticaspa.webp" },
+        { nombre: "Shampoo Tammy Aguacate", precio: 10, descripcion: "shampoo tammy de 500ml da brillo y aroma agradable", imagen: "img/tammy-aguacate.webp" },
+        { nombre: "Axe Dark Temperation", precio: 23, descripcion: "desodorante en aerosol de 150ml", imagen: "img/axe-dark.webp" },
+        { nombre: "Axe Fragancia+Frescura", precio: 23, descripcion: "desodorante en aerosol de 150ml", imagen: "img/axe-frescura.webp" },
+        { nombre: "Ponds Clarant B3", precio: 22, descripcion: "crema antimanchas e hidratante, unifica el tono de piel y desvanece manchas oscuras", imagen: "img/ponds-clarant.webp" }
     ],
     "VERDULERÍA FRESH": [
         { nombre: "Libra de Tomate", precio: 6, descripcion: "Tomate de ensalada tipo manzano bien maduro, fresco y seleccionado.", imagen: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300" },
