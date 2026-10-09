@@ -16,7 +16,7 @@ const negociosPorCategoria = {
         { nombre: "DOMINOS EXPRESS", envioGratis: false, img: "https://tse4.mm.bing.net/th/id/OIP.y0F_StlyjW83DR4e5klmZwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
         { nombre: "CARNITAS EL GORDO", envioGratis: false, img: "https://static.vecteezy.com/system/resources/previews/048/006/291/large_2x/pork-dumplings-chef-free-vector.jpg" },
         { nombre: "LA NEVERIA", envioGratis: false, img: "img/neveria.webp" },
-        { nombre: "PASTELERÍA DULCE DELICIA", envioGratis: false, img: "https://img.freepik.com/vector-premium/logotipo-pasteleria-fondo-blanco_1197524-14358.jpg" }
+        { nombre: "HOLANDESA", envioGratis: false, img: "img/holandesa.webp" }
     ],
     "farmacia": [
         { nombre: "FARMACIA MI SALUD", envioGratis: true, img: "https://static.vecteezy.com/system/resources/previews/006/303/724/original/pharmacy-logo-template-icon-symbol-design-free-vector.jpg" },
@@ -28,8 +28,9 @@ const negociosPorCategoria = {
         { nombre: "MERCADITO ORIENTE", envioGratis: false, img: "https://www.creativefabrica.com/wp-content/uploads/2024/12/09/Modern-Ecommerce-Website-Logo-SVG-Vector-Graphics-111628754-1-580x387.jpg" }
     ],
     "otros": [
-        { nombre: "VARIEDADES AyA", envioGratis: true, img: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300" },
+        { nombre: "TOTALPLAST", envioGratis: true, img: "img/plast.webp" },
         { nombre: "MOTOS HONDA", envioGratis: true, img: "https://toppng.com/uploads/thumbnail/honda-logo-11540236620o3erbhp25m.png" },
+        { nombre: "1VEA HOGAR", envioGratis: true, img: "img/1vea.webp" },
         { nombre: "ELECTRÓNICA EXPRESS", envioGratis: false, img: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=300" }
     ]
 };
@@ -44,14 +45,15 @@ const infoRestaurantes = {
     "DOMINOS EXPRESS": { envioGratis: false },
     "CARNITAS EL GORDO": { envioGratis: false },
     "LA NEVERIA": { envioGratis: false },
-    "PASTELERÍA DULCE DELICIA": { envioGratis: false },
+    "HOLANDESA": { envioGratis: false },
     "FARMACIA MI SALUD": { envioGratis: true },
     "BELLO OASIS": { envioGratis: false },
     "VERDULERÍA FRESH": { envioGratis: true },
     "CARNICERIA EL RANCHO": { envioGratis: false },
     "MERCADITO ORIENTE": { envioGratis: false },
-    "VARIEDADES AyA": { envioGratis: true },
+    "TOTALPLAST": { envioGratis: true },
     "MOTOS HONDA": { envioGratis: true },
+    "1VEA HOGAR": { envioGratis: true },
     "ELECTRÓNICA EXPRESS": { envioGratis: false }
 };
 
@@ -132,22 +134,22 @@ const menus = {
         { nombre: "Pepsi 1 Litro", precio: 8, descripcion: "Bebida familiar refrescante Pepsi de 1 L.", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" }
     ],
     "CARNITAS EL GORDO": [
-        { nombre: "Libra de Carnitas", precio: 55, descripcion: "Carne de cerdo frita en su propia grasa bien doradita por fuera y suave por dentro. Incluye chirmol y tortillas.", imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?w=300" },
-        { nombre: "Media Libra de Carnitas", precio: 30, descripcion: "Media libra de crujiente carnita de cerdo acompañada de rábanos picados, guacamole y salsa artesanal.", imagen: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300" },
-        { nombre: "Porcion de Mushque", precio: 15, descripcion: "Delicioso chicharrón picadito en pasta con especias regionales tradicionales.", imagen: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=300" },
-        { nombre: "Docena de Longaniza", precio: 12, descripcion: "12 longanizas asadas con hierbas aromáticas y ajo listas para disfrutar.", imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300" },
+        { nombre: "Libra de Carnitas", precio: 55, descripcion: "Carne de cerdo frita en su propia grasa bien doradita por fuera y suave por dentro", imagen: "img/carnitas.webp" },
+        { nombre: "Media Libra de Carnitas", precio: 30, descripcion: "Media libra de crujiente carnita de cerdo acompañada de rábanos picado", imagen: "img/carnitas.webp" },
+        { nombre: "Porcion de Mushque", precio: 15, descripcion: "Delicioso chicharrón picadito en pasta con especias regionales tradicionales.", imagen: "img/mushque.webp" },
+        { nombre: "Docena de Longaniza", precio: 12, descripcion: "12 longanizas asadas con hierbas aromáticas y ajo listas para disfrutar.", imagen: "img/longas.webp" },
         { nombre: "1 litro de Pepsi", precio: 8, descripcion: "Botella helada de 1 litro.", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" },
         { nombre: "gaseosa en lata", precio: 6, descripcion: "Lata personal de gaseosa salvavidas surtida.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg" }
     ], 
         "LA NEVERIA": [
-        { nombre: "Helado de cono", precio: 17, descripcion: "", imagen: "https://images.unsplash.com/photo-1544025162-d76694265947?w=300" },
-        { nombre: "Banana split", precio: 25, descripcion: " ", imagen: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300" },
-        { nombre: "Sundae", precio: 22, descripcion: " ", imagen: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=300" },
-        { nombre: "Pastel de Helado pequeño", precio: 75, descripcion: "de 4 a 6 porciones segun medida", imagen: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300" },
-        { nombre: "Pastel de Helado Mediano", precio: 95, descripcion: "pastel de 8 a 12 porciones segun medida", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" },
-        { nombre: "Pastel de Helado Grande", precio: 140, descripcion: "pastel de 16 a 20 porciones segun medida", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg" }
+        { nombre: "Helado wafle", precio: 12, descripcion: "", imagen: "img/wafle.webp" },
+        { nombre: "Banana split", precio: 25, descripcion: " ", imagen: "img/banana-split.webp" },
+        { nombre: "Sundae", precio: 22, descripcion: " ", imagen: "img/sundae.webp" },
+        { nombre: "Pastel de Helado pequeño", precio: 75, descripcion: "de 4 a 6 porciones segun medida", imagen: "img/pastel-pe.webp" },
+        { nombre: "Pastel de Helado Mediano", precio: 95, descripcion: "pastel de 8 a 12 porciones segun medida", imagen: "img/pastel-g.webp" },
+        { nombre: "Pastel de Helado Grande", precio: 140, descripcion: "pastel de 16 a 20 porciones segun medida", imagen: "img/pastel-pe.webp" }
     ],
-    "PASTELERÍA DULCE DELICIA": [
+    "HOLANDESA": [
         { nombre: "Pastel de Chocolate (Entero)", precio: 120, descripcion: "Pastel artesanal grande de bizcocho húmedo de chocolate, relleno de fudge y cubierto de betún.", imagen: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300" },
         { nombre: "Porción de Tres Leches", precio: 18, descripcion: "Rebanada esponjosa impregnada en mezcla de tres leches y canela molida encima.", imagen: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=300" },
         { nombre: "Pie de Queso con Fresa", precio: 85, descripcion: "Pie frío sobre base de galleta crocante bañado en mermelada natural de fresas.", imagen: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=300" },
@@ -189,12 +191,12 @@ const menus = {
         { nombre: "Frijol Negro Ducal", precio: 14, descripcion: "rápida cocción y gran sabor.", imagen: "https://images.uff29053bfc14?w=300" },
         { nombre: "Aceite Vegetal 800ml", precio: 16, descripcion: "alimentos diarios.", imagen: "https://images.unspl-7eaacbcd87c5?w=300" }
     ],
-    "VARIEDADES AyA": [
+    "TOTALPLAST": [
         { nombre: "Cuaderno ", precio: 12, descripcion: "estudio.", imagen: "https://images.unsplash.com" },
         { nombre: "Cuaderno ", precio: 12, descripcion: "estudio.", imagen: "https://images.unsplash.com" },
         { nombre: "Cuaderno ", precio: 12, descripcion: "estudio.", imagen: "https://images.unsplash.com" },
         { nombre: "Cuaderno ", precio: 12, descripcion: "estudio.", imagen: "https://images.unsplash.com" },
-        { nombre: "Caja de Lapiceros x12", precio: 20, descripcion: "negra de trazo suave.", imagen: "https://images.unsplas" }
+        { nombre: "Caja de Lapiceros x12", precio: 20, descripcion: "negra de trazo suave.", imagen: "" }
     ],
     "MOTOS HONDA": [
         { nombre: "XBLADE 160 mod2026", precio: 17890, descripcion: "mecanica,gasolina/carburada, diseño deportivo y baja altura", imagen: "https://th.bing.com/th/id/R.ce16a0823a94576db70b92c330f4397a?rik=6rlDgteiVsdpHg&pid=ImgRaw&r=0" },
@@ -204,6 +206,19 @@ const menus = {
         { nombre: "CRF125F 2026", precio: 34190, descripcion: "Todo terreno de iniciacion, 8.9HP y 10.2Nm", imagen: "https://powersports.honda.com/motorcycle/trail/crf125f/-/media/products/family/crf125f/trim-hero/gallery/crf125f/2026/red/2026-crf125f-red-gallery-01.png" },
         { nombre: "CB300F TWISTER 2026", precio: 35890, descripcion: "Naked deportiva de frenos ABS y control de traccion HSTC, iluminacion led completa", imagen: "https://www.iamabiker.com/wp-content/uploads/2022/08/Honda-CB300F-HD-wallpaper-6-1536x864.jpg" },
         { nombre: "NAVI 110cc 2026", precio: 12990, descripcion: "Hasta 160km por galon, compartimiento de carga y 7.8HP", imagen: "https://tse2.mm.bing.net/th/id/OIP.rywZJcCck72lj6cnRE7n4QHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" }
+        ],
+         "1VEA HOGAR": [
+        { nombre: "Cobertor de Sillon", precio: 270, descripcion: "Directo de fabrica, ideal para sala con sillones de 1,2 y 3 plazas, varios colores", imagen: "img/cobertor-sillon.webp" },
+        { nombre: "Cobertor de Lavadora", precio: 180, descripcion: "Impermeable, resistente y facil de lavar, se adapta a cualquier lavadora", imagen: "img/lavadora.webp" },
+        { nombre: "Cortinas Blackout ", precio: 150, descripcion: "medida 137 x 213cm, argollas metalicas, varios colores", imagen: "img/cortina.webp" },
+        { nombre: "Cubrecama Queen", precio: 270, descripcion: "incluye fundas para almohada, variedad de diseños", imagen: "img/cobertor-cama.webp" },
+        { nombre: "Cubrecama King", precio: 280, descripcion: "incluye fundas para almohada, variedad de diseños", imagen: "img/cubre-king.webp" },
+        { nombre: "Frazada(poncho) de Terciopelo ", precio: 190, descripcion: "240x220cm facil de lavar, super suave y duradero, varios colores", imagen: "img/poncho.webp" },
+        { nombre: "Cubrecama con Vuelo Queen ", precio: 270, descripcion: "incluye fundas para almohadas, variedad de diseños", imagen: "img/cubre-vuelo.webp" },
+        { nombre: "Cubrecama con Vuelo King ", precio: 275, descripcion: "incluye funda para almohada, variedad de diseños", imagen: "img/vuelo-king.webp" },
+        { nombre: "Toalla L ", precio: 75, descripcion: "76x147cm, 4 colores disponibles", imagen: "img/toalla.webp" },
+        { nombre: "Cojin enguantado 2und ", precio: 70, descripcion: "45x45cm 6 colores disponibles", imagen: "img/enguantada.webp" },
+        { nombre: "Almohada Blanca 2und", precio: 70, descripcion: "tamaño mediano de 74x48cm ", imagen: "img/almohada-blanca.webp" }
     ],
     "ELECTRÓNICA EXPRESS": [
         { nombre: "Type-C", precio: 45, descripcion: "Cable ", imagen: "https://images.uns" },
