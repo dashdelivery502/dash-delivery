@@ -101,11 +101,11 @@ const menus = {
         { nombre: "Gaseosa en lata", precio: 8, descripcion: "Bebida gaseosa Coca Cola en lata.", imagen: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300" }
     ],
     "LA SICILIANA": [
-        { nombre: "Pizza Personal", precio: 20, descripcion: "Pizza individual de 4 rebanadas horneada en piedra con salsa de tomate y queso mozzarella.", imagen: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300" },
-        { nombre: "Pizza Carnilover", precio: 65, descripcion: "Pizza grande cargada con pepperoni, salchicha italiana, jamón, tocino crocante y extra queso.", imagen: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=300" },
-        { nombre: "Pizza Hawaiana", precio: 60, descripcion: "Combinación clásica de piña caramelizada en almíbar, trozos de jamón premium y queso derretido.", imagen: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300" },
-        { nombre: "Pizza Grande Extra Queso", precio: 55, descripcion: "Pizza familiar de 8 porciones bañada en doble capa de queso mozzarella fundido.", imagen: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=300" },
-        { nombre: "2 Pizzas Grandes (+ 8 Canelitas)", precio: 90, descripcion: "Super combo de 2 pizzas familiares a elección más 8 deliciosos palitroques dulces con canela.", imagen: "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?w=300" },
+        { nombre: "Pizza Personal", precio: 20, descripcion: "Pizza individual de 4 rebanadas horneada en piedra con salsa de tomate y queso mozzarella.", imagen: "personal-sici.webp" },
+        { nombre: "Pizza Carnilover", precio: 65, descripcion: "Pizza grande cargada con pepperoni, salchicha italiana, jamón, tocino crocante y extra queso.", imagen: "carnilover-sici.webp" },
+        { nombre: "Pizza Hawaiana", precio: 60, descripcion: "Combinación clásica de piña caramelizada en almíbar, trozos de jamón premium y queso derretido.", imagen: "hawai-sici.webp" },
+        { nombre: "Pizza Grande Extra Queso", precio: 55, descripcion: "Pizza familiar de 8 porciones bañada en doble capa de queso mozzarella fundido.", imagen: "extra-queso-sici.webp" },
+        { nombre: "2 Pizzas Grandes (+ 8 Canelitas)", precio: 90, descripcion: "Super combo de 2 pizzas familiares a elección más 8 deliciosos palitroques dulces con canela.", imagen: "combo1-sici.webp" },
         { nombre: "1L de Pepsi", precio: 8, imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp", descripcion: "Botella desechable de 1 Litro para compartir." }
     ],
     "POLLO GRANJERO": [
@@ -122,11 +122,11 @@ const menus = {
         { nombre: "1L de Pepsi", precio: 8, imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp", descripcion: "Botella desechable de 1 Litro para compartir." }
     ],
     "DOMINOS EXPRESS": [
-        { nombre: "Pizza Pepperoni", precio: 55, descripcion: "Masa fresca horneada al punto con rebanadas de pepperoni doradito y queso fundido.", imagen: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=300" },
-        { nombre: "Pizza Tropical", precio: 65, descripcion: "Sabor agridulce especial con jamón, piña fresca, pimientos verdes y salsa de la casa.", imagen: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300" },
-        { nombre: "Pizza Carnivora", precio: 70, descripcion: "La preferida de los amantes de la carne: jamón, pepperoni, carne molida y salchicha frita.", imagen: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=300" },
-        { nombre: "Pizzerola", precio: 20, descripcion: "Rollo crocante relleno de salsa boloñesa, queso derretido y especias italianas.", imagen: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=300" },
-        { nombre: "Mega Empanada", precio: 20, descripcion: "Empanada gigante frita rellena de carne picada sazonada con vegetales.", imagen: "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?w=300" },
+        { nombre: "Pizza Pepperoni", precio: 55, descripcion: "Masa fresca horneada al punto con rebanadas de pepperoni doradito y queso fundido.", imagen: "peperoni-domi.webp" },
+        { nombre: "Pizza Tropical", precio: 65, descripcion: "Sabor agridulce especial con jamón, piña fresca, pimientos verdes y salsa de la casa.", imagen: "tropical-domi.webp" },
+        { nombre: "Pizza Carnivora", precio: 70, descripcion: "La preferida de los amantes de la carne: jamón, pepperoni, carne molida y salchicha frita.", imagen: "carnivora-domi.webp" },
+        { nombre: "Pizzerola", precio: 20, descripcion: "Rollo crocante relleno de salsa boloñesa, queso derretido y especias italianas.", imagen: "pizzerola-domi.webp" },
+        { nombre: "Mega Empanada", precio: 20, descripcion: "Empanada gigante frita rellena de carne picada sazonada con vegetales.", imagen: "empanada-domi.webp" },
         { nombre: "Pepsi 1 Litro", precio: 8, descripcion: "Bebida familiar refrescante Pepsi de 1 L.", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" }
     ],
     "CARNITAS EL GORDO": [
@@ -145,14 +145,14 @@ const menus = {
         { nombre: "3 litros de gaseosa", precio: 20, descripcion: "Botella tamaño gigante Tiky o similar de 3 Litros.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2022/08/TIKY-3-LTS.png" }
     ],
     "FARMACIA MI SALUD": [
-        { nombre: "Acetaminofén 500mg MK blister", precio: 10, descripcion: "Analgésico para adultos en presentacion de 10 tabletas comprimidas.", imagen: "" },
-        { nombre: "Acetaminofen Farmandina 100mg", precio: 40, descripcion: "analgesico y antipiretico para niños", imagen: "" },
-        { nombre: "kalmanervo 25000 x 1 ampolla", precio: 72, descripcion: "inyeccion para el dolor,inflamacion de nervios,dolor lumbar.contiene vitamina B1.B12 y B16", imagen: "" },
-        { nombre: "Dolo kalmanervo x 2 ampollas", precio: 75, descripcion: "inyeccion con vitaminas B1.B12.B6 y diclofenaco para dolores fuertes e inflamacion de nervios", imagen: "" },
-        { nombre: "Sucradel suspencion 200ml", precio: 180, descripcion: "sucralfato 1g/5ml de la marca Fardel", imagen: "" },
-        { nombre: "Ketorodel(ketorolaco) 20mg Fardel", precio: 98, descripcion: "caja x 10 tabletas recubiertas de ketorolaco trometamol 20mg", imagen: "" },
-        { nombre: "Toallas Humedas Family Choice", precio: 14, descripcion: "presentacion extra larga con 80und para el uso diario en bebes y adultos", imagen: "" },
-        { nombre: "Suero Oral Hidravida", precio: 18, descripcion: "Sabores surtidos, indica cual es tu favorito luego de realizar el pedido", imagen: "" }
+        { nombre: "Acetaminofén 500mg MK blister", precio: 10, descripcion: "Analgésico para adultos en presentacion de 10 tabletas comprimidas.", imagen: "aceta-mk.webp" },
+        { nombre: "Acetaminofen Farmandina 100mg", precio: 40, descripcion: "analgesico y antipiretico para niños", imagen: "acetaminofen-farmandina.webp" },
+        { nombre: "kalmanervo 25000 x 1 ampolla", precio: 72, descripcion: "inyeccion para el dolor,inflamacion de nervios,dolor lumbar.contiene vitamina B1.B12 y B16", imagen: "kalmanervo.webp" },
+        { nombre: "Dolo kalmanervo x 2 ampollas", precio: 75, descripcion: "inyeccion con vitaminas B1.B12.B6 y diclofenaco para dolores fuertes e inflamacion de nervios", imagen: "kalmanervo.webp" },
+        { nombre: "Sucradel suspencion 200ml", precio: 180, descripcion: "sucralfato 1g/5ml de la marca Fardel", imagen: "sucradel.webp" },
+        { nombre: "Ketorodel(ketorolaco) 20mg Fardel", precio: 98, descripcion: "caja x 10 tabletas recubiertas de ketorolaco trometamol 20mg", imagen: "ketorodel.webp" },
+        { nombre: "Toallas Humedas Family Choice", precio: 14, descripcion: "presentacion extra larga con 80und para el uso diario en bebes y adultos", imagen: "toallitas.webp" },
+        { nombre: "Suero Oral Hidravida", precio: 18, descripcion: "Sabores surtidos, indica cual es tu favorito luego de realizar el pedido", imagen: "hidravida.webp" }
     ],
     "PROTEÍNAS & FIT": [
         { nombre: "Whey Protein 2lbs", precio: 280, descripcion: "Proteína concentrada de suero de leche enriquecida con aminoácidos BCAA para desarrollo muscular.", imagen: "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=300" },
