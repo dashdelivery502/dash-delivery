@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título y SEO para Google en Nueva Santa Rosa, Santa Rosa -->
+    <title>Dash Delivery 502 | Envíos y Menú Digital en Santa Rosa</title>
+    <meta name="description" content="Haz tus pedidos en línea en Santa Rosa con Dash Delivery 502. Comida a domicilio, mandados y fletes rápidos.">
+    <meta name="keywords" content="Dash Delivery, Dash Delivery 502, Nueva Santa Rosa, Santa Rosa, Guatemala, envíos a domicilio, restaurante Nueva Santa Rosa, fletes, mandados">
+    <meta name="robots" content="index, follow">
+    <meta name="msvalidate.01" content="E1EFAF6F341CA731FDA5EEBD561B8C34" />
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0033a0">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="icono-192.png">
+    <link rel="apple-touch-icon" href="icono-192.png">
+
+    <meta property="og:site_name" content="Dash Delivery 502">
+    <meta property="og:title" content="Dash Delivery 502 | Envíos y Pedidos en Santa Rosa">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Dash Delivery 502",
+        "url": "https://dashdelivery502.github.io/"
+    }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Dash Delivery 502</h1>
+        <p>Envíos y Pedidos Rápidos en Santa Rosa</p>
+    </header>
+
+    <div class="banner-publicidad">
+        <input type="text" id="buscador-restaurante" placeholder="🔍 Buscar negocio o comida..." oninput="buscarRestaurante()">
+    </div>
+
+    <div class="container">
+        <!-- Panel Principal de 4 Opciones -->
+        <div id="seccion-panel-principal">
+            <h2 class="seccion-titulo">¿Qué necesitas hoy?</h2>
+            <div class="grid-panel-inicio">
+                <div class="card-categoria-principal" onclick="irACategoria('restaurantes')">
+                    <div class="icono">🍔</div>
+                    <h3>Restaurantes y Antojos</h3>
+                </div>
+                <div class="card-categoria-principal" onclick="irACategoria('farmacia')">
+                    <div class="icono">💊</div>
+                    <h3>Farmacia / vitaminas</h3>
+                </div>
+                <div class="card-categoria-principal" onclick="irACategoria('mercado')">
+                    <div class="icono">🥩🥬</div>
+                    <h3>Mercado</h3>
+                </div>
+                <div class="card-categoria-principal" onclick="irACategoria('otros')">
+                    <div class="icono">🛍️</div>
+                    <h3>Otros Servicios</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista de Negocios por Categoría -->
+        <div id="seccion-restaurantes" style="display: none;">
+            <button class="btn-volver" onclick="volverAPanelPrincipal()">← Volver a Categorías</button>
+            <h2 class="seccion-titulo" id="titulo-categoria-activa">Negocios Disponibles</h2>
+            <div class="grid-restaurantes" id="grid-restaurantes"></div>
+        </div>
+
+        <!-- Menú / Catálogo de Productos -->
+        <div id="seccion-menu" class="menu-seccion">
+            <button class="btn-volver" onclick="volverANegocios()">← Volver a Negocios</button>
+            <h2 id="titulo-restaurante" class="seccion-titulo">Menú</h2>
+            <div id="lista-productos"></div>
+        </div>
+    </div>
+
+    <!-- Barra Inferior del Carrito -->
+    <div class="carrito-bar">
+        <div>
+            <span>Total: <strong id="total-txt">Q0.00</strong></span> | 
+            <small><span id="cant-txt">0</span> ítems</small>
+        </div>
+        <div style="display: flex; gap: 8px;">
+            <button class="btn-ver-carrito" style="background-color: #6c757d;" onclick="abrirModalCarrito()">Ver Carrito</button>
+            <button class="btn-ver-carrito" style="background-color: #FF6600;" onclick="abrirModalCarrito()">Ordenar</button>
+        </div>
+    </div>
+
+    <!-- Modal del Carrito -->
+    <div id="modal-carrito" class="modal">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <h3>Tu Pedido - Dash Delivery</h3>
+                <button class="btn-cerrar" onclick="cerrarModalCarrito()">&times;</button>
+            </div>
+            
+            <div id="carrito-lista"></div>
+            
+            <div id="info-envio-box" class="info-envio-carrito" style="display:none;"></div>
+
+            <div id="seccion-datos" class="datos-cliente" style="display:none;">
+                <h4>Datos de Entrega:</h4>
+                <input type="text" id="cliente-nombre" placeholder="Tu Nombre (Obligatorio)">
+                <input type="text" id="cliente-direccion" placeholder="Dirección de Entrega (Obligatorio)">
+                <input type="text" id="cliente-referencia" placeholder="Referencia (ej. Portón rojo)">
+
+                <button id="btn-whatsapp" class="btn-pedir-whatsapp" onclick="enviarAWhatsApp()">
+                    📲 Confirmar Pedido por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace al archivo JavaScript externo -->
+    <script src="js/main.js"></script>
+</body>
+</html>
