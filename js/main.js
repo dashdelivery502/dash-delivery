@@ -64,7 +64,7 @@ const menus = {
         { nombre: "ceviche de camaron mediano", precio: 50, descripcion: "Camarones seleccionados curtidos en limón con tomate, cebolla, salsa inglesa y un toque picante.", imagen: "https://www.guatemala.com/fotos/2020/04/ceviche-885x500.jpg" },
         { nombre: "ceviche de camaron tamaño grande", precio: 90, descripcion: "Camarones seleccionados curtidos en limón con tomate, cebolla, salsa inglesa y un toque picante.", imagen: "https://www.guatemala.com/fotos/2020/04/ceviche-885x500.jpg" },
         { nombre: "michelada gallo", precio: 30, descripcion: "Cerveza Gallo bien fría preparada con mix especial de limón, sal, tajín y salsas.", imagen: "https://static.wixstatic.com/media/c5644f_c3fd01cfadeb4de0ad37c307e254a2d5~mv2.jpg/v1/fill/w_980,h_1470,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c5644f_c3fd01cfadeb4de0ad37c307e254a2d5~mv2.jpg" },
-        { nombre: "Gaseosa en lata", precio: 6, descripcion: "Lata fría salvavidas sabor uva,limon o naranja.", imagen: "https://latorremx.vtexassets.com/arquivos/ids/190394-800-auto?v=638494109579900000&width=800&height=auto&aspect=true" }
+        { nombre: "Gaseosa en lata", precio: 6, descripcion: "Lata fría salvavidas sabor uva, limon o naranja.", imagen: "https://latorremx.vtexassets.com/arquivos/ids/190394-800-auto?v=638494109579900000&width=800&height=auto&aspect=true", opciones: ["Uva", "Limón", "Naranja"] }
     ],
     "TAQUERO MUCHO": [
         { nombre: "Quesa Birria", precio: 35, descripcion: "3 tortillas rellenas de carne de res deshebrada con abundante queso", imagen: "" },
@@ -87,7 +87,7 @@ const menus = {
         { nombre: "Piña Colada", precio: 30, descripcion: "coctel dulce y refrescante elaborada con jugo de piña principalmente", imagen: "" },
         { nombre: "Cafe Helado", precio: 30, descripcion: "bebida refrescante con hielo hecha a base de cafe", imagen: "" },
         { nombre: "Michelada", precio: 35, descripcion: "mezcla de jugos vegetales y cerveza", imagen: "" },
-        { nombre: "Bebida Natural", precio: 10, descripcion: "Fresco natural preparado al día (Horchata, Jamaica o Tamarindo).", imagen: "https://media.istockphoto.com/id/1171303132/photo/strawberry-cocktail-and-strawberry-on-wooden-table-with-a-blank-space-for-a-text.jpg?s=1024x1024&w=is&k=20&c=7up1VlKOlVHW6V-HQp7IyC5J-WS2xbEYdd3RD3YxfC4=" }
+        { nombre: "Bebida Natural", precio: 10, descripcion: "Fresco natural preparado al día (Horchata, Jamaica o Tamarindo).", imagen: "https://media.istockphoto.com/id/1171303132/photo/strawberry-cocktail-and-strawberry-on-wooden-table-with-a-blank-space-for-a-text.jpg?s=1024x1024&w=is&k=20&c=7up1VlKOlVHW6V-HQp7IyC5J-WS2xbEYdd3RD3YxfC4=", opciones: ["Horchata", "Jamaica", "Tamarindo"] }
     ],
     "POLLO DELY ROSY": [
         { nombre: "Combo 1 Pieza (1Papas + 1Ensalada)", precio: 20, descripcion: "Pieza de pollo crujiente + papas fritas y ensalada", imagen: "https://static.vecteezy.com/system/resources/previews/073/675/187/large_2x/fried-chicken-and-french-fries-free-png.png" },
@@ -96,7 +96,7 @@ const menus = {
         { nombre: "1 Papa", precio: 7, descripcion: "Complemento extra individual", imagen: "https://static.vecteezy.com/system/resources/previews/059/482/403/non_2x/crispy-golden-french-fries-served-in-a-red-container-for-a-delicious-fast-food-snack-french-fries-food-fast-food-snack-isolated-lunch-take-out-free-png.png" },
         { nombre: "1 Ensalada", precio: 7, descripcion: "Complemento extra individual.", imagen: "https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_150,q_auto:low,fl_lossy,dpr_2.0,c_fill,f_auto,h_150/bfubmka0kj0j23n1ndnx" },
         { nombre: "Papas Locas", precio: 15, descripcion: "Papas fritas con salsa y mayonesa", imagen: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnibWid62HSACJCV9jl2pbaLD0xj-XybCaS6AR_GCix25V9xBbEWNMVPOjuIXDH10_7XAyAlFa5Au3GsMv27ZjVVArSq7hwomRSM-j1Bt37dUKXuc82mXF7h_lQOq_O_POXPtKvg?key=ls6I_YEY3fzKA7j1A3GHLg" },
-        { nombre: "Gaseosa en lata", precio: 8, descripcion: "Bebida gaseosa Coca Cola en lata.", imagen: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300" }
+        { nombre: "Gaseosa en lata", precio: 8, descripcion: "Bebida gaseosa Coca Cola en lata.", imagen: "img/cocacola.webp" }
     ],
     "LA ESQUITERA": [
         { nombre: "ESQUITE NORMAL ", precio: 25, descripcion: "granos de maiz con queso, salsa,mayonesa y chips", imagen: "https://img.freepik.com/premium-photo/esquite-mexican-corn-salad-traditional-street-food-from-mexico_338367-2311.jpg?w=300" },
@@ -122,7 +122,7 @@ const menus = {
         { nombre: "Porcion de papas", precio: 8, descripcion: "papas fritas normales", imagen: "https://pricelisto-files.s3.us-east-2.amazonaws.com/pollo-granjero-cr/papa-frita-pequena.png" },
         { nombre: "Ensalada", precio: 8, descripcion: "ensalada de repollo individual", imagen: "https://pricelisto-files.s3.us-east-2.amazonaws.com/pollo-granjero-cr/ensalada-de-repollo.png" },
         { nombre: "Pastelito", precio: 8, descripcion: "unidad de pastelito relleno con manzana", imagen: "https://tse1.mm.bing.net/th/id/OIP.x6D1n4exd2z5Eah7-kNryQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
-        { nombre: "Gaseosa en lata", precio: 6, descripcion: "gaseosa salvavidas sabor limon,uva o naranja", imagen: "https://latinshopatl.com/cdn/shop/files/Salvavidaslimon1.jpg?v=1749489837&width=1946" },
+        { nombre: "Gaseosa en lata", precio: 6, descripcion: "gaseosa salvavidas sabor limon,uva o naranja", imagen: "https://latinshopatl.com/cdn/shop/files/Salvavidaslimon1.jpg?v=1749489837&width=1946", opciones: ["Limón", "Uva", "Naranja"] },
         { nombre: "1L de Pepsi", precio: 8, imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp", descripcion: "Botella desechable de 1 Litro para compartir." }
     ],
     "DOMINOS EXPRESS": [
@@ -131,6 +131,7 @@ const menus = {
         { nombre: "Pizza Carnivora", precio: 70, descripcion: "jamón, pepperoni, carne molida y salchicha frita.", imagen: "img/carnivora-domi.webp" },
         { nombre: "Pizzerola", precio: 20, descripcion: "queso derretido y especias italianas.", imagen: "img/pizzerola-domi.webp" },
         { nombre: "Mega Empanada", precio: 20, descripcion: "Empanada gigante frita rellena de carne picada sazonada con vegetales.", imagen: "img/empanada-domi.webp" },
+        {nombre: "Gaseosa Salvavidas en Lata", precio: 6, descripcion: "gaseosa salvavidas del sabor que prefieras", imagen: "https://latinshopatl.com/cdn/shop/files/Salvavidaslimon1.jpg?v=1749489837&width=1946", opciones: ["limon","uva","naranja"]},
         { nombre: "Pepsi 1 Litro", precio: 8, descripcion: "Bebida familiar refrescante Pepsi de 1 L.", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" }
     ],
     "CARNITAS EL GORDO": [
@@ -139,22 +140,22 @@ const menus = {
         { nombre: "Porcion de Mushque", precio: 15, descripcion: "Delicioso chicharrón picadito en pasta con especias regionales tradicionales.", imagen: "img/mushque.webp" },
         { nombre: "Docena de Longaniza", precio: 12, descripcion: "12 longanizas asadas con hierbas aromáticas y ajo listas para disfrutar.", imagen: "img/longas.webp" },
         { nombre: "1 litro de Pepsi", precio: 8, descripcion: "Botella helada de 1 litro.", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" },
-        { nombre: "gaseosa en lata", precio: 6, descripcion: "Lata personal de gaseosa salvavidas surtida.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg" }
+        { nombre: "gaseosa en lata", precio: 6, descripcion: "Lata personal de gaseosa salvavidas surtida.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg", opciones: ["Uva", "Limón", "Naranja", "Cola"] }
     ], 
-        "LA NEVERIA": [
-        { nombre: "Helado wafle", precio: 12, descripcion: "", imagen: "img/wafle.webp" },
-        { nombre: "Banana split", precio: 25, descripcion: " ", imagen: "img/banana-split.webp" },
-        { nombre: "Sundae", precio: 22, descripcion: " ", imagen: "img/sundae.webp" },
+    "LA NEVERIA": [
+        { nombre: "Helado wafle", precio: 12, descripcion: "cono normal con una bola de helado", imagen: "img/wafle.webp", opciones: ["Vainilla", "Chocolate", "Fresa", "Menta"] },
+        { nombre: "Banana split", precio: 25, descripcion: "3 bolas de helado acompañadas de banano y galleta", imagen: "img/banana-split.webp" },
+        { nombre: "Sundae", precio: 22, descripcion: "3 bolas de rico helado", imagen: "img/sundae.webp", opciones: ["Vainilla con Chocolate", "Fresa", "Mixto"] },
         { nombre: "Pastel de Helado pequeño", precio: 75, descripcion: "de 4 a 6 porciones segun medida", imagen: "img/pastel-pe.webp" },
         { nombre: "Pastel de Helado Mediano", precio: 95, descripcion: "pastel de 8 a 12 porciones segun medida", imagen: "img/pastel-g.webp" },
         { nombre: "Pastel de Helado Grande", precio: 140, descripcion: "pastel de 16 a 20 porciones segun medida", imagen: "img/pastel-pe.webp" }
     ],
     "HOLANDESA": [
-        { nombre: "Pastel de Chocolate (Entero)", precio: 120, descripcion: "Pastel artesanal grande de bizcocho húmedo de chocolate, relleno de fudge y cubierto de betún.", imagen: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300" },
-        { nombre: "Porción de Tres Leches", precio: 18, descripcion: "Rebanada esponjosa impregnada en mezcla de tres leches y canela molida encima.", imagen: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=300" },
-        { nombre: "Pie de Queso con Fresa", precio: 85, descripcion: "Pie frío sobre base de galleta crocante bañado en mermelada natural de fresas.", imagen: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=300" },
-        { nombre: "Caja de Cupcakes x6", precio: 45, descripcion: "Caja surtida con 6 magdalenas decoradas con crema pastelera de vainilla y chocolate.", imagen: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=300" },
-        { nombre: "3 litros de gaseosa", precio: 20, descripcion: "Botella tamaño gigante Tiky o similar de 3 Litros.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2022/08/TIKY-3-LTS.png" }
+        { nombre: "Pastel California", precio: 120, descripcion: "12 a 16 porciones", imagen: "img/pastel-california.webp" },
+        { nombre: "Porcion 3 leches", precio: 12, descripcion: "porcion para una persona", imagen: "img/3leches.webp" },
+        { nombre: "Pastel de frutas", precio: 85, descripcion: "12 a 16 porciones", imagen: "img/pastel-frutas.webp" },
+        { nombre: "Coca Cola", precio: 8, descripcion: "Bebida gaseosa en lata de 354ml", imagen: "img/cocacola.webp" },
+        { nombre: "3 litros de gaseosa", precio: 20, descripcion: "Botella tamaño gigante Tiky o similar de 3 Litros.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2022/08/TIKY-3-LTS.png", opciones: ["Tiky", "Uva", "Limon"] }
     ],
     "FARMACIA MI SALUD": [
         { nombre: "Acetaminofén 500mg MK blister", precio: 10, descripcion: "Analgésico para adultos en presentacion de 10 tabletas comprimidas.", imagen: "img/aceta-mk.webp" },
@@ -164,7 +165,7 @@ const menus = {
         { nombre: "Sucradel suspencion 200ml", precio: 180, descripcion: "sucralfato 1g/5ml de la marca Fardel", imagen: "img/sucradel.webp" },
         { nombre: "Ketorodel(ketorolaco) 20mg Fardel", precio: 98, descripcion: "caja x 10 tabletas recubiertas de ketorolaco trometamol 20mg", imagen: "img/ketorodel.webp" },
         { nombre: "Toallas Humedas Family Choice", precio: 14, descripcion: "presentacion extra larga con 80und para el uso diario en bebes y adultos", imagen: "img/toallitas.webp" },
-        { nombre: "Suero Oral Hidravida", precio: 18, descripcion: "Sabores surtidos, indica cual es tu favorito luego de realizar el pedido", imagen: "img/hidravida.webp" }
+        { nombre: "Suero Oral Hidravida", precio: 18, descripcion: "Sabores surtidos, indica cual es tu favorito luego de realizar el pedido", imagen: "img/hidravida.webp", opciones: ["Fresa", "Coco", "Manzana", "Natural"] }
     ],
     "BELLO OASIS": [
         { nombre: "Shampoo Calypso Keratina", precio: 25, descripcion: "shampoo de 1 litro repara,nutre,protege y alisa tu cabello", imagen: "img/calypso-keratina.webp" },
@@ -175,9 +176,12 @@ const menus = {
         { nombre: "Ponds Clarant B3", precio: 22, descripcion: "crema antimanchas e hidratante, unifica el tono de piel y desvanece manchas oscuras", imagen: "img/ponds-clarant.webp" }
     ],
     "VERDULERÍA FRESH": [
-        { nombre: "Libra de Tomate", precio: 6, descripcion: "Tomate de ensalada tipo manzano bien maduro, fresco y seleccionado.", imagen: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300" },
-        { nombre: "Libra de Cebolla", precio: 5, descripcion: "Cebolla blanca firme y de excelente tamaño para cocinar.", imagen: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=300" },
-        { nombre: "Mano de Bananos", precio: 10, descripcion: "Racimo pequeño de bananos criollos amarillos listos para comer.", imagen: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=300" }
+        { nombre: "Libra de Tomate", precio: 6, descripcion: "Tomate fresco y seleccionado.", imagen: "img/" },
+        { nombre: "Unidad de Cebolla", precio: 2, descripcion: "excelente tamaño para cocinar.", imagen: "img/" },
+        { nombre: "Libra de Papa", precio: 8, descripcion: "excelente tamaño para cocinar.", imagen: "img/" },
+        { nombre: "Par de Pepinos", precio: 8, descripcion: "excelente tamaño para cocinar.", imagen: "img/" },
+        { nombre: "Limon Criollo 5und", precio: 4, descripcion: "excelente tamaño para cocinar.", imagen: "img/" },
+        { nombre: "Libra de ejote", precio: 13, descripcion: "ejote grande y tierno", imagen: "img/" }
     ],
     "CARNICERIA EL RANCHO": [
         { nombre: "Libra de Carne simple", precio: 35, descripcion: ", Corte fino, carne fresca", imagen: "https://carnesideal.tienda/cdn/shop/products/RES58-1_7d85edfa-86a8-4dcd-b56e-30ac1a296c49_800x.jpg?v=1627841553" },
@@ -187,16 +191,26 @@ const menus = {
         { nombre: "10 Longanizas de res", precio: 10, descripcion: "Tamaño noble y sabor incomparable ", imagen: "https://www.donmoddang.go.th/index/add_file/GhIOVtvWed63019.jpg" }
     ],
     "MERCADITO ORIENTE": [
-        { nombre: "Arroz Blanco 1 libra", precio: 11, descripcion: "primera calidad.", imagen: "https://83865001e31c?w=300" },
-        { nombre: "Frijol Negro Ducal", precio: 14, descripcion: "rápida cocción y gran sabor.", imagen: "https://images.uff29053bfc14?w=300" },
-        { nombre: "Aceite Vegetal 800ml", precio: 16, descripcion: "alimentos diarios.", imagen: "https://images.unspl-7eaacbcd87c5?w=300" }
+        { nombre: "Arroz Molinero 1 libra", precio: 7.50, descripcion: "primera calidad.", imagen: "img/" },
+        { nombre: "Azucar Morena", precio: 20, descripcion: "2000g azucar tulipan fortificada con vitamina A", imagen: "img/" },
+        { nombre: "Azucar Caña Real 5.4lb", precio: 24, descripcion: "azucar blanca", imagen: "img/" },
+        { nombre: "Axucar Morena 400g", precio: 4.50, descripcion: "azucar tulipan morena fortificada con vitamina A", imagen: "img/" },
+        { nombre: "Azucar Caña Real 500g", precio: 5.50, descripcion: "azucar blanca", imagen: "img/" },
+        { nombre: "Gaseosa Ting", precio: 13, descripcion: "3L sabor a Toronja", imagen: "img/" },
+        { nombre: "Huevo mediano ", precio: 33, descripcion: "Carton de 30und, huevo blanco", imagen: "img/" },
+        { nombre: "Bebida Lactea Foremost", precio: 12, descripcion: "alternativa saludable 0% colesterol, 946ml", imagen: "img/" },
+        { nombre: "Cafe Quetzal Sello Verde", precio: 18, descripcion: "tostado y molido", imagen: "img/" },
+        { nombre: "Cafe Musun Suave 260g", precio: 68, descripcion: "estudio.", imagen: "img/" },
+        { nombre: "Cafe Musun suave 46g", precio: 18, descripcion: "aroma penetrante", imagen: "img/" },
+        { nombre: "Pan Blanco La mejor", precio: 14, descripcion: "rápida cocción y gran sabor.", imagen: "img/" },
+        { nombre: "Aceite ideal 175ml", precio: 5, descripcion: "alimentos diarios.", imagen: "img/" }
     ],
     "TOTALPLAST": [
-        { nombre: "Cuaderno ", precio: 12, descripcion: "estudio.", imagen: "https://images.unsplash.com" },
-        { nombre: "Cuaderno ", precio: 12, descripcion: "estudio.", imagen: "https://images.unsplash.com" },
-        { nombre: "Cuaderno ", precio: 12, descripcion: "estudio.", imagen: "https://images.unsplash.com" },
-        { nombre: "Cuaderno ", precio: 12, descripcion: "estudio.", imagen: "https://images.unsplash.com" },
-        { nombre: "Caja de Lapiceros x12", precio: 20, descripcion: "negra de trazo suave.", imagen: "" }
+        { nombre: "Basurero pequeño", precio: 30, descripcion: "basurero con tapa, colores surtido", imagen: "img/" },
+        { nombre: "Basurero 20L con abrefacil", precio: 90, descripcion: "basurero de la marca mega, abre la tapa con el pie", imagen: "img/" },
+        { nombre: "Set de Pichel 5L", precio: 25, descripcion: "hermoso pichel nuevo diseño con 4 vasos.", imagen: "img/" },
+        { nombre: "Organizador Plastico", precio: 60, descripcion: "4 gavetas con diseño de ratan y color surtido", imagen: "img/" },
+        { nombre: "Vaso Diamante", precio: 10, descripcion: "hermoso y resistente, capacidad de hasta 650ml.", imagen: "img/" }
     ],
     "MOTOS HONDA": [
         { nombre: "XBLADE 160 mod2026", precio: 17890, descripcion: "mecanica,gasolina/carburada, diseño deportivo y baja altura", imagen: "https://th.bing.com/th/id/R.ce16a0823a94576db70b92c330f4397a?rik=6rlDgteiVsdpHg&pid=ImgRaw&r=0" },
@@ -206,27 +220,23 @@ const menus = {
         { nombre: "CRF125F 2026", precio: 34190, descripcion: "Todo terreno de iniciacion, 8.9HP y 10.2Nm", imagen: "https://powersports.honda.com/motorcycle/trail/crf125f/-/media/products/family/crf125f/trim-hero/gallery/crf125f/2026/red/2026-crf125f-red-gallery-01.png" },
         { nombre: "CB300F TWISTER 2026", precio: 35890, descripcion: "Naked deportiva de frenos ABS y control de traccion HSTC, iluminacion led completa", imagen: "https://www.iamabiker.com/wp-content/uploads/2022/08/Honda-CB300F-HD-wallpaper-6-1536x864.jpg" },
         { nombre: "NAVI 110cc 2026", precio: 12990, descripcion: "Hasta 160km por galon, compartimiento de carga y 7.8HP", imagen: "https://tse2.mm.bing.net/th/id/OIP.rywZJcCck72lj6cnRE7n4QHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" }
-        ],
-         "1VEA HOGAR": [
-        { nombre: "Cobertor de Sillon", precio: 270, descripcion: "Directo de fabrica, ideal para sala con sillones de 1,2 y 3 plazas, varios colores", imagen: "img/cobertor-sillon.webp" },
+    ],
+    "1VEA HOGAR": [
+        { nombre: "Cobertor de Sillon", precio: 270, descripcion: "Directo de fabrica, ideal para sala con sillones de 1,2 y 3 plazas, varios colores", imagen: "img/cobertor-sillon.webp", opciones: ["Beige", "Gris", "Azul Marino", "Vino"] },
         { nombre: "Cobertor de Lavadora", precio: 180, descripcion: "Impermeable, resistente y facil de lavar, se adapta a cualquier lavadora", imagen: "img/lavadora.webp" },
-        { nombre: "Cortinas Blackout ", precio: 150, descripcion: "medida 137 x 213cm, argollas metalicas, varios colores", imagen: "img/cortina.webp" },
-        { nombre: "Cubrecama Queen", precio: 270, descripcion: "incluye fundas para almohada, variedad de diseños", imagen: "img/cobertor-cama.webp" },
-        { nombre: "Cubrecama King", precio: 280, descripcion: "incluye fundas para almohada, variedad de diseños", imagen: "img/cubre-king.webp" },
-        { nombre: "Frazada(poncho) de Terciopelo ", precio: 190, descripcion: "240x220cm facil de lavar, super suave y duradero, varios colores", imagen: "img/poncho.webp" },
-        { nombre: "Cubrecama con Vuelo Queen ", precio: 270, descripcion: "incluye fundas para almohadas, variedad de diseños", imagen: "img/cubre-vuelo.webp" },
-        { nombre: "Cubrecama con Vuelo King ", precio: 275, descripcion: "incluye funda para almohada, variedad de diseños", imagen: "img/vuelo-king.webp" },
-        { nombre: "Toalla L ", precio: 75, descripcion: "76x147cm, 4 colores disponibles", imagen: "img/toalla.webp" },
-        { nombre: "Cojin enguantado 2und ", precio: 70, descripcion: "45x45cm 6 colores disponibles", imagen: "img/enguantada.webp" },
+        { nombre: "Cortinas Blackout ", precio: 150, descripcion: "medida 137 x 213cm, argollas metalicas, varios colores", imagen: "img/cortina.webp", opciones: ["Beige", "Gris", "Negro", "Azul"] },
+        { nombre: "Cubrecama Queen", precio: 270, descripcion: "incluye fundas para almohada, variedad de diseños", imagen: "img/cobertor-cama.webp", opciones: ["Diseño 1", "Diseño 2", "Diseño 3"] },
+        { nombre: "Cubrecama King", precio: 280, descripcion: "incluye fundas para almohada, variedad de diseños", imagen: "img/cubre-king.webp", opciones: ["Diseño 1", "Diseño 2"] },
+        { nombre: "Frazada(poncho) de Terciopelo ", precio: 190, descripcion: "240x220cm facil de lavar, super suave y duradero, varios colores", imagen: "img/poncho.webp", opciones: ["Gris", "Azul", "Café", "Vino"] },
+        { nombre: "Cubrecama con Vuelo Queen ", precio: 270, descripcion: "incluye fundas para almohadas, variedad de diseños", imagen: "img/cubre-vuelo.webp", opciones: ["Diseño 1", "Diseño 2"] },
+        { nombre: "Cubrecama con Vuelo King ", precio: 275, descripcion: "incluye funda para almohada, variedad de diseños", imagen: "img/vuelo-king.webp", opciones: ["Diseño 1", "Diseño 2"] },
+        { nombre: "Toalla L ", precio: 75, descripcion: "76x147cm, 4 colores disponibles", imagen: "img/toalla.webp", opciones: ["Celeste", "Blanco", "Beige", "Gris"] },
+        { nombre: "Cojin enguantado 2und ", precio: 70, descripcion: "45x45cm 6 colores disponibles", imagen: "img/enguantada.webp", opciones: ["Gris", "Beige", "Rojo", "Azul", "Negro", "Café"] },
         { nombre: "Almohada Blanca 2und", precio: 70, descripcion: "tamaño mediano de 74x48cm ", imagen: "img/almohada-blanca.webp" }
     ],
     "ELECTRÓNICA EXPRESS": [
-        { nombre: "Type-C", precio: 45, descripcion: "Cable ", imagen: "https://images.uns" },
-        { nombre: "Type-C", precio: 45, descripcion: "Cable", imagen: "https://images.uns" },
-        { nombre: "Type-C", precio: 45, descripcion: "Cable.", imagen: "https://images.uns" },
-        { nombre: " Type-C", precio: 45, descripcion: "Cable.", imagen: "https://images.uns" },
-        { nombre: " Type-C", precio: 45, descripcion: "Cable", imagen: "https://images.uns" },
-        { nombre: "Audífonos Bluetooth Inalámbricos", precio: 95, descripcion: "controles táctiles.", imagen: "https://images.unsplash.com/phot" }
+        { nombre: "Type-C", precio: 45, descripcion: "Cable de carga rápida", imagen: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300" },
+        { nombre: "Audífonos Bluetooth Inalámbricos", precio: 95, descripcion: "Controles táctiles y estuche de carga.", imagen: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300" }
     ]
 };
 
@@ -327,7 +337,7 @@ function renderizarTiendas(tiendas) {
 
 function volverAPanelPrincipal() {
     document.getElementById('buscador-restaurante').value = '';
-    buscarRestaurante(); // Restablece la visibilidad de todos los negocios
+    buscarRestaurante();
     cambiarVista('panel-inicio');
 }
 
@@ -349,7 +359,7 @@ function buscarRestaurante() {
     });
 }
 
-// Renderizado del Menú CON DESCRIPCIÓN
+// Renderizado del Menú con opciones de colores/sabores dinámicos
 function abrirMenu(nombreRestaurante) {
     restauranteActual = nombreRestaurante;
     document.getElementById('titulo-restaurante').textContent = nombreRestaurante;
@@ -358,8 +368,21 @@ function abrirMenu(nombreRestaurante) {
     contenedor.innerHTML = "";
 
     const productos = menus[nombreRestaurante] || [];
-    productos.forEach(prod => {
+    productos.forEach((prod, index) => {
         const descHtml = prod.descripcion ? `<div class="producto-desc">${prod.descripcion}</div>` : '';
+        
+        let opcionesHtml = '';
+        if (prod.opciones && prod.opciones.length > 0) {
+            opcionesHtml = `
+                <div style="margin: 6px 0;">
+                    <label style="font-size: 11px; font-weight: bold; color: #555;">Elige opción:</label>
+                    <select id="opcion-${index}" style="width: 100%; padding: 4px; border-radius: 4px; border: 1px solid #ccc; font-size: 12px;">
+                        ${prod.opciones.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                    </select>
+                </div>
+            `;
+        }
+
         contenedor.innerHTML += `
             <div class="producto-card">
                 <div class="producto-detalle">
@@ -367,10 +390,11 @@ function abrirMenu(nombreRestaurante) {
                     <div class="producto-info">
                         <h4>${prod.nombre}</h4>
                         ${descHtml}
+                        ${opcionesHtml}
                         <p>Q${prod.precio}.00</p>
                     </div>
                 </div>
-                <button class="btn-agregar" onclick="agregarAlCarrito('${prod.nombre}', ${prod.precio})">+ Agregar</button>
+                <button class="btn-agregar" onclick="agregarConOpcion('${prod.nombre}', ${prod.precio}, ${index})">+ Agregar</button>
             </div>
         `;
     });
@@ -378,7 +402,24 @@ function abrirMenu(nombreRestaurante) {
     cambiarVista('menu');
 }
 
-function agregarAlCarrito(nombre, precio) {
+// Captura la opción seleccionada antes de enviar al carrito
+function agregarConOpcion(nombre, precio, indexProd) {
+    let seleccionExtra = "";
+    const selectElement = document.getElementById(`opcion-${indexProd}`);
+    
+    if (selectElement) {
+        seleccionExtra = selectElement.value;
+    }
+
+    let nombreFinal = nombre;
+    if (seleccionExtra) {
+        nombreFinal = `${nombre} (${seleccionExtra})`;
+    }
+
+    agregarAlCarritoDirecto(nombreFinal, precio);
+}
+
+function agregarAlCarritoDirecto(nombre, precio) {
     if (carrito.length > 0 && carrito[0].restaurante !== restauranteActual) {
         const cambiar = confirm(`Tu carrito contiene productos de "${carrito[0].restaurante}". ¿Deseas vaciar el carrito para agregar productos de "${restauranteActual}"?`);
         if (cambiar) {
