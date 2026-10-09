@@ -27,10 +27,14 @@ const negociosPorCategoria = {
         { nombre: "CARNICERIA EL RANCHO", envioGratis: false, img: "https://static.vecteezy.com/system/resources/previews/006/981/131/original/fresh-meat-premium-beef-logo-free-vector.jpg" },
         { nombre: "MERCADITO ORIENTE", envioGratis: false, img: "https://www.creativefabrica.com/wp-content/uploads/2024/12/09/Modern-Ecommerce-Website-Logo-SVG-Vector-Graphics-111628754-1-580x387.jpg" }
     ],
-    "otros": [
+    "vehiculos": [
+        { nombre: "MOTOS HONDA", envioGratis: true, img: "https://toppng.com/uploads/thumbnail/honda-logo-11540236620o3erbhp25m.png" }
+    ],
+    "hogar": [
         { nombre: "TOTALPLAST", envioGratis: true, img: "img/plast.webp" },
-        { nombre: "MOTOS HONDA", envioGratis: true, img: "https://toppng.com/uploads/thumbnail/honda-logo-11540236620o3erbhp25m.png" },
-        { nombre: "1VEA HOGAR", envioGratis: true, img: "img/1vea.webp" },
+        { nombre: "1VEA HOGAR", envioGratis: true, bajopedido: true, img: "img/1vea.webp" }
+    ],
+    "otros": [
         { nombre: "ELECTRÓNICA EXPRESS", envioGratis: false, img: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=300" }
     ]
 };
@@ -67,26 +71,26 @@ const menus = {
         { nombre: "Gaseosa en lata", precio: 6, descripcion: "Lata fría salvavidas sabor uva, limon o naranja.", imagen: "https://latorremx.vtexassets.com/arquivos/ids/190394-800-auto?v=638494109579900000&width=800&height=auto&aspect=true", opciones: ["Uva", "Limón", "Naranja"] }
     ],
     "TAQUERO MUCHO": [
-        { nombre: "Quesa Birria", precio: 35, descripcion: "3 tortillas rellenas de carne de res deshebrada con abundante queso", imagen: "" },
-        { nombre: "Doraditas de Birria", precio: 35, descripcion: "tortilla dorada con carne deshebrada", imagen: "" },
-        { nombre: "Mega Birria", precio: 60, descripcion: "tortilla grande rellena de carne de res deshebrada y abundante queso", imagen: "" },
-        { nombre: "Costra de Queso", precio: 40, descripcion: "queso a la plancha tostado y crujiente", imagen: "" },
-        { nombre: "Burrito de Birria", precio: 35, descripcion: "tortilla de harina con carne de birria y complementos", imagen: "" },
-        { nombre: "Birria Men", precio: 45, descripcion: "sopa de fideos cocidos con consome de birria y una abundante mezcla de birria y queso", imagen: "" },
-        { nombre: "Taco al Pastor", precio: 30, descripcion: "taco tradicional mexicano con carne de cerdo", imagen: "" },
-        { nombre: "Taco de Asada", precio: 30, descripcion: "tortilla tradicional mexicana con carne de res", imagen: "" },
-        { nombre: "Taco de Pollo", precio: 30, descripcion: "tortilla tradicional mexicana con carne de pollo", imagen: "" },
-        { nombre: "Taco de Longaniza", precio: 30, descripcion: "tortilla tradicional mexicana con una mezcla de longaniza y especies", imagen: "" },
-        { nombre: "Taco de Chorizo", precio: 30, descripcion: "tortilla tradicional mexicana con carne picada de chorizo", imagen: "" },
-        { nombre: "Quesadilla de Asada", precio: 35, descripcion: "tortilla de harina con carne de res y una mezcla de queso", imagen: "" },
-        { nombre: "Quesadilla al Pastor", precio: 35, descripcion: "tortilla de harina con carne de cerdo y una mezcla de queso", imagen: "" },
-        { nombre: "Quesadilla de Pollo", precio: 35, descripcion: "tortilla de harina con carne de pollo y una mezcla de queso", imagen: "" },
-        { nombre: "Bandeja de 15 Tacos", precio: 160, descripcion: "15 tacos mixtos con acompañamientos", imagen: "" },
-        { nombre: "Bandeja de 12 Tacos", precio: 135, descripcion: "12 tacos mixtos con acompañamientos", imagen: "" },
-        { nombre: "Bandeja de 20 Tacos", precio: 200, descripcion: "20 tacos mixtos con acompañamientos", imagen: "" },
-        { nombre: "Piña Colada", precio: 30, descripcion: "coctel dulce y refrescante elaborada con jugo de piña principalmente", imagen: "" },
-        { nombre: "Cafe Helado", precio: 30, descripcion: "bebida refrescante con hielo hecha a base de cafe", imagen: "" },
-        { nombre: "Michelada", precio: 35, descripcion: "mezcla de jugos vegetales y cerveza", imagen: "" },
+        { nombre: "Quesa Birria", precio: 35, descripcion: "3 tortillas rellenas de carne de res deshebrada con abundante queso", imagen: "img/quesabirria.webp" },
+        { nombre: "Doraditas de Birria", precio: 35, descripcion: "tortilla dorada con carne deshebrada", imagen: "img/doradita-birria.webp" },
+        { nombre: "Mega Birria", precio: 60, descripcion: "tortilla grande rellena de carne de res deshebrada y abundante queso", imagen: "img/mega-birria.webp" },
+        { nombre: "Costra de Queso", precio: 40, descripcion: "queso a la plancha tostado y crujiente", imagen: "img/costra-queso.webp" },
+        { nombre: "Burrito de Birria", precio: 35, descripcion: "tortilla de harina con carne de birria y complementos", imagen: "img/burrito-birria.webp" },
+        { nombre: "Birria Men", precio: 45, descripcion: "sopa de fideos cocidos con consome de birria y una abundante mezcla de birria y queso", imagen: "img/birria-men.webp" },
+        { nombre: "Taco al Pastor", precio: 30, descripcion: "taco tradicional mexicano con carne de cerdo", imagen: "img/taco-pastor.webp" },
+        { nombre: "Taco de Asada", precio: 30, descripcion: "tortilla tradicional mexicana con carne de res", imagen: "img/taco-pastor.webp" },
+        { nombre: "Taco de Pollo", precio: 30, descripcion: "tortilla tradicional mexicana con carne de pollo", imagen: "img/taco-pollo.webp" },
+        { nombre: "Taco de Longaniza", precio: 30, descripcion: "tortilla tradicional mexicana con una mezcla de longaniza y especies", imagen: "img/taco-pollo.webp" },
+        { nombre: "Taco de Chorizo", precio: 30, descripcion: "tortilla tradicional mexicana con carne picada de chorizo", imagen: "img/taco-pollo.webp" },
+        { nombre: "Quesadilla de Asada", precio: 35, descripcion: "tortilla de harina con carne de res y una mezcla de queso", imagen: "img/quesadilla.webp" },
+        { nombre: "Quesadilla al Pastor", precio: 35, descripcion: "tortilla de harina con carne de cerdo y una mezcla de queso", imagen: "img/quesadilla.webp" },
+        { nombre: "Quesadilla de Pollo", precio: 35, descripcion: "tortilla de harina con carne de pollo y una mezcla de queso", imagen: "img/quesadilla.webp" },
+        { nombre: "Bandeja de 15 Tacos", precio: 160, descripcion: "15 tacos mixtos con acompañamientos", imagen: "img/bandeja-grande.webp" },
+        { nombre: "Bandeja de 12 Tacos", precio: 135, descripcion: "12 tacos mixtos con acompañamientos", imagen: "img/bandeja-grande.webp" },
+        { nombre: "Bandeja de 20 Tacos", precio: 200, descripcion: "20 tacos mixtos con acompañamientos", imagen: "img/bandeja-grande.webp" },
+        { nombre: "Piña Colada", precio: 30, descripcion: "coctel dulce y refrescante elaborada con jugo de piña principalmente", imagen: "img/colada.webp" },
+        { nombre: "Cafe Helado", precio: 30, descripcion: "bebida refrescante con hielo hecha a base de cafe", imagen: "img/cafe-helado.webp" },
+        { nombre: "Michelada", precio: 35, descripcion: "mezcla de jugos vegetales y cerveza", imagen: "img/michelada.webp" },
         { nombre: "Bebida Natural", precio: 10, descripcion: "Fresco natural preparado al día (Horchata, Jamaica o Tamarindo).", imagen: "https://media.istockphoto.com/id/1171303132/photo/strawberry-cocktail-and-strawberry-on-wooden-table-with-a-blank-space-for-a-text.jpg?s=1024x1024&w=is&k=20&c=7up1VlKOlVHW6V-HQp7IyC5J-WS2xbEYdd3RD3YxfC4=", opciones: ["Horchata", "Jamaica", "Tamarindo"] }
     ],
     "POLLO DELY ROSY": [
@@ -176,12 +180,12 @@ const menus = {
         { nombre: "Ponds Clarant B3", precio: 22, descripcion: "crema antimanchas e hidratante, unifica el tono de piel y desvanece manchas oscuras", imagen: "img/ponds-clarant.webp" }
     ],
     "VERDULERÍA FRESH": [
-        { nombre: "Libra de Tomate", precio: 6, descripcion: "Tomate fresco y seleccionado.", imagen: "img/" },
-        { nombre: "Unidad de Cebolla", precio: 2, descripcion: "excelente tamaño para cocinar.", imagen: "img/" },
-        { nombre: "Libra de Papa", precio: 8, descripcion: "excelente tamaño para cocinar.", imagen: "img/" },
-        { nombre: "Par de Pepinos", precio: 8, descripcion: "excelente tamaño para cocinar.", imagen: "img/" },
-        { nombre: "Limon Criollo 5und", precio: 4, descripcion: "excelente tamaño para cocinar.", imagen: "img/" },
-        { nombre: "Libra de ejote", precio: 13, descripcion: "ejote grande y tierno", imagen: "img/" }
+        { nombre: "Libra de Tomate", precio: 6, descripcion: "Tomate fresco y seleccionado.", imagen: "img/tomate.webp" },
+        { nombre: "Unidad de Cebolla", precio: 2, descripcion: "excelente tamaño para cocinar.", imagen: "img/cebolla.webp" },
+        { nombre: "Libra de Papa", precio: 8, descripcion: "excelente tamaño para cocinar.", imagen: "img/libra-papa.webp" },
+        { nombre: "Par de Pepinos", precio: 8, descripcion: "excelente tamaño para cocinar.", imagen: "img/pepino.webp" },
+        { nombre: "Limon Criollo 6und", precio: 5, descripcion: "excelente tamaño para cocinar.", imagen: "img/limon-criollo.webp" },
+        { nombre: "Libra de ejote", precio: 13, descripcion: "ejote grande y tierno", imagen: "img/ejote.webp" }
     ],
     "CARNICERIA EL RANCHO": [
         { nombre: "Libra de Carne simple", precio: 35, descripcion: ", Corte fino, carne fresca", imagen: "https://carnesideal.tienda/cdn/shop/products/RES58-1_7d85edfa-86a8-4dcd-b56e-30ac1a296c49_800x.jpg?v=1627841553" },
@@ -311,6 +315,8 @@ function irACategoria(cat) {
     if (cat === 'restaurantes') titulo.textContent = "Restaurantes y Antojos";
     else if (cat === 'farmacia') titulo.textContent = "Farmacias y vitaminas";
     else if (cat === 'mercado') titulo.textContent = "Mercado";
+    else if (cat === 'vehiculos') titulo.textContent = "Vehículos";
+    else if (cat === 'hogar') titulo.textContent = "Prendas y Hogar";
     else titulo.textContent = "Otros Servicios";
 
     renderizarTiendas(negociosPorCategoria[cat] || []);
@@ -322,12 +328,19 @@ function renderizarTiendas(tiendas) {
     grid.innerHTML = "";
 
     tiendas.forEach(tienda => {
-        const badgeText = tienda.envioGratis ? '🚚 Envío Gratis' : '🚚 Envío con Costo';
-        const badgeClass = tienda.envioGratis ? 'badge-gratis' : 'badge-costo';
+        // Determinamos el texto y estilo del badge según las propiedades de la tienda
+        let badgeText = tienda.envioGratis ? '🚚 Envío Gratis' : '🚚 Envío con Costo';
+        let badgeClass = tienda.envioGratis ? 'badge-gratis' : 'badge-costo';
+
+        // Si la tienda es bajo pedido (como Motos Honda), agregamos la etiqueta adicional
+        let badgePedidoHtml = tienda.bajoPedido ? `<span class="badge-pedido">📦 Bajo Pedido (7 días)</span>` : '';
 
         grid.innerHTML += `
             <div class="card-restaurante" onclick="abrirMenu('${tienda.nombre}')">
-                <span class="badge-envio ${badgeClass}">${badgeText}</span>
+                <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px;">
+                    <span class="badge-envio ${badgeClass}">${badgeText}</span>
+                    ${badgePedidoHtml}
+                </div>
                 <img src="${tienda.img}" alt="${tienda.nombre}">
                 <h3>${tienda.nombre}</h3>
             </div>
@@ -337,7 +350,6 @@ function renderizarTiendas(tiendas) {
 
 function volverAPanelPrincipal() {
     document.getElementById('buscador-restaurante').value = '';
-    buscarRestaurante();
     cambiarVista('panel-inicio');
 }
 
@@ -345,18 +357,114 @@ function volverANegocios() {
     cambiarVista('restaurantes');
 }
 
+// Función auxiliar para quitar tildes y acentos (Búsqueda más flexible)
+function normalizarTexto(texto) {
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+// Buscador Inteligente de Productos Directos
 function buscarRestaurante() {
-    const filtro = document.getElementById('buscador-restaurante').value.toLowerCase();
-    
-    if (vistaActual === 'panel-inicio' && filtro.length > 0) {
-        irACategoria('restaurantes');
+    const inputVal = document.getElementById('buscador-restaurante').value;
+    const filtro = normalizarTexto(inputVal.trim());
+
+    if (filtro === "") {
+        if (vistaActual === 'restaurantes') {
+            renderizarTiendas(negociosPorCategoria[categoriaActual] || []);
+        } else if (vistaActual === 'resultados_busqueda') {
+            cambiarVista('panel-inicio');
+        }
+        return;
     }
 
-    const tarjetas = document.querySelectorAll('#grid-restaurantes .card-restaurante');
-    tarjetas.forEach(tarjeta => {
-        const nombreRestaurante = tarjeta.querySelector('h3').textContent.toLowerCase();
-        tarjeta.style.display = nombreRestaurante.includes(filtro) ? 'block' : 'none';
+    // Recopilamos todos los productos que coincidan en cualquier menú
+    let productosEncontrados = [];
+
+    for (let nombreRestaurante in menus) {
+        const listaProductos = menus[nombreRestaurante];
+        
+        listaProductos.forEach((prod, index) => {
+            let coincide = normalizarTexto(prod.nombre).includes(filtro) || 
+                           (prod.descripcion && normalizarTexto(prod.descripcion).includes(filtro)) ||
+                           normalizarTexto(nombreRestaurante).includes(filtro);
+
+            if (coincide) {
+                productosEncontrados.push({
+                    ...prod,
+                    restaurante: nombreRestaurante,
+                    originalIndex: index
+                });
+            }
+        });
+    }
+
+    // Cambiamos a la vista de resultados de productos
+    categoriaActual = 'resultados_busqueda';
+    document.getElementById('titulo-categoria-activa').textContent = `Resultados para: "${inputVal}"`;
+    cambiarVista('restaurantes');
+
+    renderizarProductosBuscados(productosEncontrados);
+}
+
+// Función exclusiva para renderizar los productos encontrados en el buscador
+function renderizarProductosBuscados(productos) {
+    const grid = document.getElementById('grid-restaurantes');
+    grid.innerHTML = "";
+
+    if (productos.length === 0) {
+        grid.innerHTML = `<p style="text-align:center; grid-column: 1/-1; padding: 30px; color: #666;">No encontramos ningún producto con "${document.getElementById('buscador-restaurante').value}". ¡Prueba con otra palabra!</p>`;
+        return;
+    }
+
+    productos.forEach((prod) => {
+        const descHtml = prod.descripcion ? `<div class="producto-desc">${prod.descripcion}</div>` : '';
+        
+        let opcionesHtml = '';
+        if (prod.opciones && prod.opciones.length > 0) {
+            opcionesHtml = `
+                <div style="margin: 6px 0;">
+                    <label style="font-size: 11px; font-weight: bold; color: #555;">Elige opción:</label>
+                    <select id="opcion-busqueda-${prod.restaurante}-${prod.nombre}" style="width: 100%; padding: 4px; border-radius: 4px; border: 1px solid #ccc; font-size: 12px;">
+                        ${prod.opciones.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                    </select>
+                </div>
+            `;
+        }
+
+        grid.innerHTML += `
+            <div class="producto-card" style="background: white; border-radius: 8px; padding: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="font-size: 11px; font-weight: bold; color: #FF6600; margin-bottom: 4px; text-transform: uppercase;">🏪 ${prod.restaurante}</div>
+                    <div class="producto-detalle" style="display: flex; gap: 10px;">
+                        <img src="${prod.imagen || 'img/placeholder.webp'}" alt="${prod.nombre}" class="producto-img" style="width: 70px; height: 70px; object-fit: cover; border-radius: 6px;">
+                        <div class="producto-info" style="flex: 1;">
+                            <h4 style="font-size: 14px; margin: 0 0 4px 0;">${prod.nombre}</h4>
+                            ${descHtml}
+                            ${opcionesHtml}
+                            <p style="font-weight: bold; color: #333; margin: 6px 0 0 0;">Q${prod.precio}.00</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-agregar" onclick="agregarDesdeBusqueda('${prod.restaurante}', '${prod.nombre}', ${prod.precio})" style="margin-top: 10px; width: 100%; background: #FF6600; color: white; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer;">+ Agregar al Carrito</button>
+            </div>
+        `;
     });
+}
+
+function agregarDesdeBusqueda(nombreRestaurante, nombreProd, precio) {
+    restauranteActual = nombreRestaurante;
+    
+    let seleccionExtra = "";
+    const selectElement = document.getElementById(`opcion-busqueda-${nombreRestaurante}-${nombreProd}`);
+    if (selectElement) {
+        seleccionExtra = selectElement.value;
+    }
+
+    let nombreFinal = nombreProd;
+    if (seleccionExtra) {
+        nombreFinal = `${nombreProd} (${seleccionExtra})`;
+    }
+
+    agregarAlCarritoDirecto(nombreFinal, precio);
 }
 
 // Renderizado del Menú con opciones de colores/sabores dinámicos

@@ -166,6 +166,16 @@ header p {
     color: #FF6600;
 }
 
+.badge-pedido {
+    background-color: #ff9800; /* Un color anaranjado/ámbar distintivo */
+    color: white;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 4px;
+    display: inline-block;
+}
+
 .card-restaurante img {
     width: 75px;
     height: 75px;
