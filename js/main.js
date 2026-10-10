@@ -28,11 +28,11 @@ const negociosPorCategoria = {
         { nombre: "MERCADITO ORIENTE", envioGratis: false, img: "https://www.creativefabrica.com/wp-content/uploads/2024/12/09/Modern-Ecommerce-Website-Logo-SVG-Vector-Graphics-111628754-1-580x387.jpg" }
     ],
     "vehiculos": [
-        { nombre: "MOTOS HONDA", envioGratis: true, bajoPedido: true, img: "https://toppng.com/uploads/thumbnail/honda-logo-11540236620o3erbhp25m.png" }
+        { nombre: "MOTOS HONDA", envioGratis: true, img: "https://toppng.com/uploads/thumbnail/honda-logo-11540236620o3erbhp25m.png" }
     ],
     "hogar": [
         { nombre: "TOTALPLAST", envioGratis: true, img: "img/plast.webp" },
-        { nombre: "1VEA HOGAR", envioGratis: true, bajoPedido: true, img: "img/1vea.webp" }
+        { nombre: "1VEA HOGAR", envioGratis: true, img: "img/1vea.webp" }
     ],
     "otros": [
         { nombre: "ELECTRÓNICA EXPRESS", envioGratis: false, img: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=300" }
@@ -56,8 +56,8 @@ const infoRestaurantes = {
     "CARNICERIA EL RANCHO": { envioGratis: false },
     "MERCADITO ORIENTE": { envioGratis: false },
     "TOTALPLAST": { envioGratis: true },
-    "MOTOS HONDA": { envioGratis: true, bajoPedido: true },
-    "1VEA HOGAR": { envioGratis: true, bajoPedido: true },
+    "MOTOS HONDA": { envioGratis: true },
+    "1VEA HOGAR": { envioGratis: true },
     "ELECTRÓNICA EXPRESS": { envioGratis: false }
 };
 
@@ -135,7 +135,7 @@ const menus = {
         { nombre: "Pizza Carnivora", precio: 70, descripcion: "jamón, pepperoni, carne molida y salchicha frita.", imagen: "img/carnivora-domi.webp" },
         { nombre: "Pizzerola", precio: 20, descripcion: "queso derretido y especias italianas.", imagen: "img/pizzerola-domi.webp" },
         { nombre: "Mega Empanada", precio: 20, descripcion: "Empanada gigante frita rellena de carne picada sazonada con vegetales.", imagen: "img/empanada-domi.webp" },
-        {nombre: "Gaseosa Salvavidas en Lata", precio: 6, descripcion: "gaseosa salvavidas del sabor que prefieras", imagen: "https://latinshopatl.com/cdn/shop/files/Salvavidaslimon1.jpg?v=1749489837&width=1946", opciones: ["limon","uva","naranja"]},
+        { nombre: "Gaseosa Salvavidas en Lata", precio: 6, descripcion: "gaseosa salvavidas del sabor que prefieras", imagen: "https://latinshopatl.com/cdn/shop/files/Salvavidaslimon1.jpg?v=1749489837&width=1946", opciones: ["limon", "uva", "naranja"] },
         { nombre: "Pepsi 1 Litro", precio: 8, descripcion: "Bebida familiar refrescante Pepsi de 1 L.", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" }
     ],
     "CARNITAS EL GORDO": [
@@ -331,14 +331,12 @@ function renderizarTiendas(tiendas) {
         let badgeText = tienda.envioGratis ? '🚚 Envío Gratis' : '🚚 Envío con Costo';
         let badgeClass = tienda.envioGratis ? 'badge-gratis' : 'badge-costo';
 
-        // Usamos el contenedor de insignias sincronizado con el CSS
         let badgePedidoHtml = tienda.bajoPedido ? `<span class="badge-pedido">📦 Bajo Pedido (7 días)</span>` : '';
 
         grid.innerHTML += `
             <div class="card-restaurante" onclick="abrirMenu('${tienda.nombre}')">
                 <div class="badges-container">
-                    <span class="badge-envio ${badgeClass}">${badgeText}</span>
-                    ${badgePedidoHtml}
+                    <span class="badge-envio ${badgeClass}">${badgeText}</span>${badgePedidoHtml}
                 </div>
                 <img src="${tienda.img}" alt="${tienda.nombre}">
                 <h3>${tienda.nombre}</h3>
@@ -413,6 +411,7 @@ function renderizarProductosBuscados(productos) {
 
     productos.forEach((prod) => {
         const descHtml = prod.descripcion ? `<div class="producto-desc">${prod.descripcion}</div>` : '';
+        const etiquetaProdHtml = prod.etiqueta ? `<span class="badge-pedido" style="margin-bottom: 4px; display: inline-block;">${prod.etiqueta}</span><br>` : '';
         
         let opcionesHtml = '';
         if (prod.opciones && prod.opciones.length > 0) {
@@ -433,9 +432,9 @@ function renderizarProductosBuscados(productos) {
                     <div class="producto-detalle" style="display: flex; gap: 10px;">
                         <img src="${prod.imagen || 'img/placeholder.webp'}" alt="${prod.nombre}" class="producto-img" style="width: 70px; height: 70px; object-fit: cover; border-radius: 6px;">
                         <div class="producto-info" style="flex: 1;">
+                            ${etiquetaProdHtml}
                             <h4 style="font-size: 14px; margin: 0 0 4px 0;">${prod.nombre}</h4>
-                            ${descHtml}
-                            ${opcionesHtml}
+                            ${descHtml}${opcionesHtml}
                             <p style="font-weight: bold; color: #333; margin: 6px 0 0 0;">Q${prod.precio}.00</p>
                         </div>
                     </div>
@@ -463,6 +462,7 @@ function agregarDesdeBusqueda(nombreRestaurante, nombreProd, precio) {
     agregarAlCarritoDirecto(nombreFinal, precio);
 }
 
+// Renderizado del Menú con soporte para etiquetas personalizadas por producto
 function abrirMenu(nombreRestaurante) {
     restauranteActual = nombreRestaurante;
     document.getElementById('titulo-restaurante').textContent = nombreRestaurante;
@@ -473,6 +473,9 @@ function abrirMenu(nombreRestaurante) {
     const productos = menus[nombreRestaurante] || [];
     productos.forEach((prod, index) => {
         const descHtml = prod.descripcion ? `<div class="producto-desc">${prod.descripcion}</div>` : '';
+        
+        // Verificamos si el producto individual tiene una etiqueta asignada
+        const etiquetaProdHtml = prod.etiqueta ? `<span class="badge-pedido" style="margin-bottom: 4px; display: inline-block;">${prod.etiqueta}</span><br>` : '';
         
         let opcionesHtml = '';
         if (prod.opciones && prod.opciones.length > 0) {
@@ -491,9 +494,9 @@ function abrirMenu(nombreRestaurante) {
                 <div class="producto-detalle">
                     <img src="${prod.imagen}" alt="${prod.nombre}" class="producto-img">
                     <div class="producto-info">
+                        ${etiquetaProdHtml}
                         <h4>${prod.nombre}</h4>
-                        ${descHtml}
-                        ${opcionesHtml}
+                        ${descHtml}${opcionesHtml}
                         <p>Q${prod.precio}.00</p>
                     </div>
                 </div>
