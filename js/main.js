@@ -28,11 +28,11 @@ const negociosPorCategoria = {
         { nombre: "MERCADITO ORIENTE", envioGratis: false, img: "https://www.creativefabrica.com/wp-content/uploads/2024/12/09/Modern-Ecommerce-Website-Logo-SVG-Vector-Graphics-111628754-1-580x387.jpg" }
     ],
     "vehiculos": [
-        { nombre: "MOTOS HONDA", envioGratis: true, img: "https://toppng.com/uploads/thumbnail/honda-logo-11540236620o3erbhp25m.png" }
+        { nombre: "MOTOS HONDA", envioGratis: true, bajoPedido: true, img: "https://toppng.com/uploads/thumbnail/honda-logo-11540236620o3erbhp25m.png" }
     ],
     "hogar": [
         { nombre: "TOTALPLAST", envioGratis: true, img: "img/plast.webp" },
-        { nombre: "1VEA HOGAR", envioGratis: true, bajopedido: true, img: "img/1vea.webp" }
+        { nombre: "1VEA HOGAR", envioGratis: true, bajoPedido: true, img: "img/1vea.webp" }
     ],
     "otros": [
         { nombre: "ELECTRÓNICA EXPRESS", envioGratis: false, img: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=300" }
@@ -56,8 +56,8 @@ const infoRestaurantes = {
     "CARNICERIA EL RANCHO": { envioGratis: false },
     "MERCADITO ORIENTE": { envioGratis: false },
     "TOTALPLAST": { envioGratis: true },
-    "MOTOS HONDA": { envioGratis: true },
-    "1VEA HOGAR": { envioGratis: true },
+    "MOTOS HONDA": { envioGratis: true, bajoPedido: true },
+    "1VEA HOGAR": { envioGratis: true, bajoPedido: true },
     "ELECTRÓNICA EXPRESS": { envioGratis: false }
 };
 
@@ -127,7 +127,7 @@ const menus = {
         { nombre: "Ensalada", precio: 8, descripcion: "ensalada de repollo individual", imagen: "https://pricelisto-files.s3.us-east-2.amazonaws.com/pollo-granjero-cr/ensalada-de-repollo.png" },
         { nombre: "Pastelito", precio: 8, descripcion: "unidad de pastelito relleno con manzana", imagen: "https://tse1.mm.bing.net/th/id/OIP.x6D1n4exd2z5Eah7-kNryQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
         { nombre: "Gaseosa en lata", precio: 6, descripcion: "gaseosa salvavidas sabor limon,uva o naranja", imagen: "https://latinshopatl.com/cdn/shop/files/Salvavidaslimon1.jpg?v=1749489837&width=1946", opciones: ["Limón", "Uva", "Naranja"] },
-        { nombre: "1L de Pepsi", precio: 8, imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp", descripcion: "Botella desechable de 1 Litro para compartir." }
+        { nombre: "1L de Pepsi", precio: 8, descripcion: "Botella desechable de 1 Litro para compartir." }
     ],
     "DOMINOS EXPRESS": [
         { nombre: "Pizza Pepperoni", precio: 55, descripcion: "rebanadas de pepperoni doradito y queso fundido.", imagen: "img/peperoni-domi.webp" },
@@ -328,16 +328,15 @@ function renderizarTiendas(tiendas) {
     grid.innerHTML = "";
 
     tiendas.forEach(tienda => {
-        // Determinamos el texto y estilo del badge según las propiedades de la tienda
         let badgeText = tienda.envioGratis ? '🚚 Envío Gratis' : '🚚 Envío con Costo';
         let badgeClass = tienda.envioGratis ? 'badge-gratis' : 'badge-costo';
 
-        // Si la tienda es bajo pedido (como Motos Honda), agregamos la etiqueta adicional
+        // Usamos el contenedor de insignias sincronizado con el CSS
         let badgePedidoHtml = tienda.bajoPedido ? `<span class="badge-pedido">📦 Bajo Pedido (7 días)</span>` : '';
 
         grid.innerHTML += `
             <div class="card-restaurante" onclick="abrirMenu('${tienda.nombre}')">
-                <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px;">
+                <div class="badges-container">
                     <span class="badge-envio ${badgeClass}">${badgeText}</span>
                     ${badgePedidoHtml}
                 </div>
@@ -376,7 +375,6 @@ function buscarRestaurante() {
         return;
     }
 
-    // Recopilamos todos los productos que coincidan en cualquier menú
     let productosEncontrados = [];
 
     for (let nombreRestaurante in menus) {
@@ -397,7 +395,6 @@ function buscarRestaurante() {
         });
     }
 
-    // Cambiamos a la vista de resultados de productos
     categoriaActual = 'resultados_busqueda';
     document.getElementById('titulo-categoria-activa').textContent = `Resultados para: "${inputVal}"`;
     cambiarVista('restaurantes');
@@ -405,7 +402,6 @@ function buscarRestaurante() {
     renderizarProductosBuscados(productosEncontrados);
 }
 
-// Función exclusiva para renderizar los productos encontrados en el buscador
 function renderizarProductosBuscados(productos) {
     const grid = document.getElementById('grid-restaurantes');
     grid.innerHTML = "";
@@ -467,7 +463,6 @@ function agregarDesdeBusqueda(nombreRestaurante, nombreProd, precio) {
     agregarAlCarritoDirecto(nombreFinal, precio);
 }
 
-// Renderizado del Menú con opciones de colores/sabores dinámicos
 function abrirMenu(nombreRestaurante) {
     restauranteActual = nombreRestaurante;
     document.getElementById('titulo-restaurante').textContent = nombreRestaurante;
@@ -510,7 +505,6 @@ function abrirMenu(nombreRestaurante) {
     cambiarVista('menu');
 }
 
-// Captura la opción seleccionada antes de enviar al carrito
 function agregarConOpcion(nombre, precio, indexProd) {
     let seleccionExtra = "";
     const selectElement = document.getElementById(`opcion-${indexProd}`);
