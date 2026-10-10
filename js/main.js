@@ -35,7 +35,7 @@ const negociosPorCategoria = {
         { nombre: "1VEA HOGAR", envioGratis: true, img: "img/1vea.webp" }
     ],
     "otros": [
-        { nombre: "ELECTRÓNICA EXPRESS", envioGratis: false, img: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=300" }
+        { nombre: "ELECTRÓNICA EXPRESS", envioGratis: false, img: "img/electronica.webp" }
     ]
 };
 
