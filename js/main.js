@@ -88,7 +88,7 @@ const menus = {
         { nombre: "Bandeja de 15 Tacos", precio: 160, descripcion: "15 tacos mixtos con acompañamientos", imagen: "img/bandeja-grande.webp" },
         { nombre: "Bandeja de 12 Tacos", precio: 135, descripcion: "12 tacos mixtos con acompañamientos", imagen: "img/bandeja-grande.webp" },
         { nombre: "Bandeja de 20 Tacos", precio: 200, descripcion: "20 tacos mixtos con acompañamientos", imagen: "img/bandeja-grande.webp" },
-        { nombre: "Piña Colada", precio: 30, descripcion: "coctel dulce y refrescante elaborada con jugo de piña principalmente", imagen: "img/colada.webp" },
+        { nombre: "Piña Colada", precio: 30, descripcion: "coctel dulce y refrescante elaborada con jugo de piña principalmente", imagen: "img/p-colada.webp" },
         { nombre: "Cafe Helado", precio: 30, descripcion: "bebida refrescante con hielo hecha a base de cafe", imagen: "img/cafe-helado.webp" },
         { nombre: "Michelada", precio: 35, descripcion: "mezcla de jugos vegetales y cerveza", imagen: "img/michelada.webp" },
         { nombre: "Bebida Natural", precio: 10, descripcion: "Fresco natural preparado al día (Horchata, Jamaica o Tamarindo).", imagen: "https://media.istockphoto.com/id/1171303132/photo/strawberry-cocktail-and-strawberry-on-wooden-table-with-a-blank-space-for-a-text.jpg?s=1024x1024&w=is&k=20&c=7up1VlKOlVHW6V-HQp7IyC5J-WS2xbEYdd3RD3YxfC4=", opciones: ["Horchata", "Jamaica", "Tamarindo"] }
@@ -114,7 +114,7 @@ const menus = {
         { nombre: "Pizza Hawaiana", precio: 60, descripcion: "Combinación clásica de piña caramelizada en almíbar, trozos de jamón premium y queso derretido.", imagen: "img/hawai-sici.webp" },
         { nombre: "Pizza Grande Extra Queso", precio: 55, descripcion: "Pizza familiar de 8 porciones bañada en doble capa de queso mozzarella fundido.", imagen: "img/extra-queso-sici.webp" },
         { nombre: "2 Pizzas Grandes (+ 8 Canelitas)", precio: 90, descripcion: "Super combo de 2 pizzas familiares a elección más 8 deliciosos palitroques dulces con canela.", imagen: "img/combo1-sici.webp" },
-        { nombre: "1L de Pepsi", precio: 8, imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp", descripcion: "Botella desechable de 1 Litro para compartir." }
+        { nombre: "1L de Pepsi", precio: 8, descripcion: "Botella desechable de 1 Litro para compartir.", imagen: "img/pepsi.webp" }
     ],
     "POLLO GRANJERO": [
         { nombre: "Menu 1 pieza", precio: 25, descripcion: "1 pieza (no pechuga) + 1 papa + 1 ensalada", imagen: "https://tb-static.uber.com/prod/image-proc/processed_images/b4119674e9468e902f62efaf88e8d949/fb86662148be855d931b37d6c1e5fcbe.jpeg" },
@@ -127,7 +127,7 @@ const menus = {
         { nombre: "Ensalada", precio: 8, descripcion: "ensalada de repollo individual", imagen: "https://pricelisto-files.s3.us-east-2.amazonaws.com/pollo-granjero-cr/ensalada-de-repollo.png" },
         { nombre: "Pastelito", precio: 8, descripcion: "unidad de pastelito relleno con manzana", imagen: "https://tse1.mm.bing.net/th/id/OIP.x6D1n4exd2z5Eah7-kNryQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
         { nombre: "Gaseosa en lata", precio: 6, descripcion: "gaseosa salvavidas sabor limon,uva o naranja", imagen: "https://latinshopatl.com/cdn/shop/files/Salvavidaslimon1.jpg?v=1749489837&width=1946", opciones: ["Limón", "Uva", "Naranja"] },
-        { nombre: "1L de Pepsi", precio: 8, descripcion: "Botella desechable de 1 Litro para compartir." }
+        { nombre: "1L de Pepsi", precio: 8, descripcion: "Botella desechable de 1 Litro para compartir.", imagen: "img/pepsi.webp" }
     ],
     "DOMINOS EXPRESS": [
         { nombre: "Pizza Pepperoni", precio: 55, descripcion: "rebanadas de pepperoni doradito y queso fundido.", imagen: "img/peperoni-domi.webp" },
@@ -136,14 +136,14 @@ const menus = {
         { nombre: "Pizzerola", precio: 20, descripcion: "queso derretido y especias italianas.", imagen: "img/pizzerola-domi.webp" },
         { nombre: "Mega Empanada", precio: 20, descripcion: "Empanada gigante frita rellena de carne picada sazonada con vegetales.", imagen: "img/empanada-domi.webp" },
         { nombre: "Gaseosa Salvavidas en Lata", precio: 6, descripcion: "gaseosa salvavidas del sabor que prefieras", imagen: "https://latinshopatl.com/cdn/shop/files/Salvavidaslimon1.jpg?v=1749489837&width=1946", opciones: ["limon", "uva", "naranja"] },
-        { nombre: "Pepsi 1 Litro", precio: 8, descripcion: "Bebida familiar refrescante Pepsi de 1 L.", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" }
+        { nombre: "Pepsi 1 Litro", precio: 8, descripcion: "Bebida familiar refrescante Pepsi de 1 L.", imagen: "img/pepsi.webp" }
     ],
     "CARNITAS EL GORDO": [
         { nombre: "Libra de Carnitas", precio: 55, descripcion: "Carne de cerdo frita en su propia grasa bien doradita por fuera y suave por dentro", imagen: "img/carnitas.webp" },
         { nombre: "Media Libra de Carnitas", precio: 30, descripcion: "Media libra de crujiente carnita de cerdo acompañada de rábanos picado", imagen: "img/carnitas.webp" },
         { nombre: "Porcion de Mushque", precio: 15, descripcion: "Delicioso chicharrón picadito en pasta con especias regionales tradicionales.", imagen: "img/mushque.webp" },
         { nombre: "Docena de Longaniza", precio: 12, descripcion: "12 longanizas asadas con hierbas aromáticas y ajo listas para disfrutar.", imagen: "img/longas.webp" },
-        { nombre: "1 litro de Pepsi", precio: 8, descripcion: "Botella helada de 1 litro.", imagen: "https://strand.1uponline.co.za/image/cache/images500/6009510806861-500x500.webp" },
+        { nombre: "1 litro de Pepsi", precio: 8, descripcion: "Botella helada de 1 litro.", imagen: "img/pepsi.webp" },
         { nombre: "gaseosa en lata", precio: 6, descripcion: "Lata personal de gaseosa salvavidas surtida.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg", opciones: ["Uva", "Limón", "Naranja", "Cola"] }
     ], 
     "LA NEVERIA": [
@@ -195,26 +195,26 @@ const menus = {
         { nombre: "10 Longanizas de res", precio: 10, descripcion: "Tamaño noble y sabor incomparable ", imagen: "https://www.donmoddang.go.th/index/add_file/GhIOVtvWed63019.jpg" }
     ],
     "MERCADITO ORIENTE": [
-        { nombre: "Arroz Molinero 1 libra", precio: 7.50, descripcion: "primera calidad.", imagen: "img/" },
-        { nombre: "Azucar Morena", precio: 20, descripcion: "2000g azucar tulipan fortificada con vitamina A", imagen: "img/" },
-        { nombre: "Azucar Caña Real 5.4lb", precio: 24, descripcion: "azucar blanca", imagen: "img/" },
-        { nombre: "Axucar Morena 400g", precio: 4.50, descripcion: "azucar tulipan morena fortificada con vitamina A", imagen: "img/" },
-        { nombre: "Azucar Caña Real 500g", precio: 5.50, descripcion: "azucar blanca", imagen: "img/" },
-        { nombre: "Gaseosa Ting", precio: 13, descripcion: "3L sabor a Toronja", imagen: "img/" },
-        { nombre: "Huevo mediano ", precio: 33, descripcion: "Carton de 30und, huevo blanco", imagen: "img/" },
-        { nombre: "Bebida Lactea Foremost", precio: 12, descripcion: "alternativa saludable 0% colesterol, 946ml", imagen: "img/" },
-        { nombre: "Cafe Quetzal Sello Verde", precio: 18, descripcion: "tostado y molido", imagen: "img/" },
-        { nombre: "Cafe Musun Suave 260g", precio: 68, descripcion: "estudio.", imagen: "img/" },
-        { nombre: "Cafe Musun suave 46g", precio: 18, descripcion: "aroma penetrante", imagen: "img/" },
-        { nombre: "Pan Blanco La mejor", precio: 14, descripcion: "rápida cocción y gran sabor.", imagen: "img/" },
-        { nombre: "Aceite ideal 175ml", precio: 5, descripcion: "alimentos diarios.", imagen: "img/" }
+        { nombre: "Arroz Molinero 1 libra", precio: 7.50, descripcion: "primera calidad.", imagen: "img/molinero.webp" },
+        { nombre: "Azucar Morena", precio: 20, descripcion: "2000g azucar tulipan fortificada con vitamina A", imagen: "img/azucar-morena.webp" },
+        { nombre: "Azucar Caña Real 5.4lb", precio: 24, descripcion: "azucar blanca", imagen: "img/azucar-real.webp" },
+        { nombre: "Azucar Morena 400g", precio: 4.50, descripcion: "azucar tulipan morena fortificada con vitamina A", imagen: "img/azucar-morena.webp" },
+        { nombre: "Azucar Caña Real 500g", precio: 5.50, descripcion: "azucar blanca", imagen: "img/azucar-real.webp" },
+        { nombre: "Gaseosa Ting", precio: 13, descripcion: "3L sabor a Toronja", imagen: "img/tang-toronja.webp" },
+        { nombre: "Huevo mediano ", precio: 34, descripcion: "Carton de 30und, huevo blanco", imagen: "img/huevos.webp" },
+        { nombre: "Bebida Lactea Foremost", precio: 12, descripcion: "alternativa saludable 0% colesterol, 946ml", imagen: "img/foremost.webp" },
+        { nombre: "Cafe Quetzal Sello Verde", precio: 18, descripcion: "tostado y molido", imagen: "img/sello-verde.webp" },
+        { nombre: "Cafe Musun Suave 260g", precio: 68, descripcion: "estudio.", imagen: "img/musun.grande.webp" },
+        { nombre: "Cafe Musun suave 46g", precio: 18, descripcion: "aroma penetrante", imagen: "img/musun-pequeño.webp" },
+        { nombre: "Pan Blanco La mejor", precio: 14, descripcion: "rápida cocción y gran sabor.", imagen: "img/lamejor.webp" },
+        { nombre: "Aceite Patrona 175ml", precio: 5, descripcion: "alimentos diarios.", imagen: "img/patrona.webp" }
     ],
     "TOTALPLAST": [
-        { nombre: "Basurero pequeño", precio: 30, descripcion: "basurero con tapa, colores surtido", imagen: "img/" },
-        { nombre: "Basurero 20L con abrefacil", precio: 90, descripcion: "basurero de la marca mega, abre la tapa con el pie", imagen: "img/" },
-        { nombre: "Set de Pichel 5L", precio: 25, descripcion: "hermoso pichel nuevo diseño con 4 vasos.", imagen: "img/" },
-        { nombre: "Organizador Plastico", precio: 60, descripcion: "4 gavetas con diseño de ratan y color surtido", imagen: "img/" },
-        { nombre: "Vaso Diamante", precio: 10, descripcion: "hermoso y resistente, capacidad de hasta 650ml.", imagen: "img/" }
+        { nombre: "Basurero pequeño", precio: 30, descripcion: "basurero con tapa, colores surtido", imagen: "img/basurero.webp" },
+        { nombre: "Basurero 20L con abrefacil", precio: 90, descripcion: "basurero de la marca mega, abre la tapa con el pie", imagen: "img/basurero-pedal.webp" },
+        { nombre: "Set de Pichel 5L", precio: 25, descripcion: "hermoso pichel nuevo diseño con 4 vasos.", imagen: "img/pichel.webp" },
+        { nombre: "Organizador Plastico", precio: 60, descripcion: "4 gavetas con diseño de ratan y color surtido", imagen: "img/organizador,webp" },
+        { nombre: "Vaso Diamante", precio: 10, descripcion: "hermoso y resistente, capacidad de hasta 650ml.", imagen: "img/vasop.webp" }
     ],
     "MOTOS HONDA": [
         { nombre: "XBLADE 160 mod2026", precio: 17890, descripcion: "mecanica,gasolina/carburada, diseño deportivo y baja altura", imagen: "https://th.bing.com/th/id/R.ce16a0823a94576db70b92c330f4397a?rik=6rlDgteiVsdpHg&pid=ImgRaw&r=0" },
@@ -462,10 +462,30 @@ function agregarDesdeBusqueda(nombreRestaurante, nombreProd, precio) {
     agregarAlCarritoDirecto(nombreFinal, precio);
 }
 
-// Renderizado del Menú con soporte para etiquetas personalizadas por producto
+// Renderizado del Menú con la imagen superior del negocio y soporte de productos
 function abrirMenu(nombreRestaurante) {
     restauranteActual = nombreRestaurante;
     document.getElementById('titulo-restaurante').textContent = nombreRestaurante;
+
+    // Buscar la imagen correspondiente al negocio para mostrarla arriba
+    let imgNegocioUrl = "";
+    for (let cat in negociosPorCategoria) {
+        const tiendaEncontrada = negociosPorCategoria[cat].find(t => t.nombre === nombreRestaurante);
+        if (tiendaEncontrada) {
+            imgNegocioUrl = tiendaEncontrada.img;
+            break;
+        }
+    }
+
+    const imgBannerElement = document.getElementById('img-banner-negocio');
+    if (imgBannerElement) {
+        if (imgNegocioUrl) {
+            imgBannerElement.src = imgNegocioUrl;
+            imgBannerElement.style.display = "block";
+        } else {
+            imgBannerElement.style.display = "none";
+        }
+    }
 
     const contenedor = document.getElementById('lista-productos');
     contenedor.innerHTML = "";
@@ -474,7 +494,6 @@ function abrirMenu(nombreRestaurante) {
     productos.forEach((prod, index) => {
         const descHtml = prod.descripcion ? `<div class="producto-desc">${prod.descripcion}</div>` : '';
         
-        // Verificamos si el producto individual tiene una etiqueta asignada
         const etiquetaProdHtml = prod.etiqueta ? `<span class="badge-pedido" style="margin-bottom: 4px; display: inline-block;">${prod.etiqueta}</span><br>` : '';
         
         let opcionesHtml = '';

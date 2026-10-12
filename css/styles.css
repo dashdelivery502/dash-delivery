@@ -223,6 +223,27 @@ header p {
     background: #e2ded4;
 }
 
+/* Estilos para el banner superior del negocio en el menú */
+#banner-negocio-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#img-banner-negocio {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+#titulo-restaurante {
+    text-align: center;
+    color: #0F4C3A;
+    margin-bottom: 15px;
+}
+
 .producto-card {
     display: flex;
     justify-content: space-between;
