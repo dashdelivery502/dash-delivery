@@ -10,7 +10,6 @@ const negociosPorCategoria = {
         { nombre: "CEVICHES FISH EXPRESS", envioGratis: true, img: "https://i.ibb.co/qMC0wHPv/Gemini-Generated-Image-juo5lgjuo5lgjuo5.jpg" },
         { nombre: "TAQUERO MUCHO", envioGratis: true, img: "https://tse3.mm.bing.net/th/id/OIP.qe7T7Csz67hNeMv8u4vGqwHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
         { nombre: "POLLO DELY ROSY", envioGratis: true, img: "https://i.pinimg.com/736x/18/4f/c4/184fc416f0e739d24fa767f4ce1fb717.jpg" },
-        { nombre: "LA ESQUITERA", envioGratis: false, img: "https://scontent.fgua6-1.fna.fbcdn.net/v/t39.30808-6/462151797_122123828918440075_5487415173012030278_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1024&ctp=s1024x1024&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=C-ilmz_3JhgQ7kNvwGxKA9N&_nc_oc=AdrSQ2eOsNsxVXkGVc63uWq6DpCtTPkoKe_C68H1IvamWEtC-HkTdTzJjys4NuLpsm4&_nc_zt=23&_nc_ht=scontent.fgua6-1.fna&_nc_gid=xJxtPu93MWXDQpNDLIG_Gw&_nc_ss=7a2a8&oh=00_AQPRPzLSSXDFbF0ZEUQZLYu8zgRPG98Gqur_8diXUAIL1Q&oe=6ACB99A9" },
         { nombre: "LA SICILIANA", envioGratis: false, img: "https://tse1.mm.bing.net/th/id/OIP.wTIHkJCHLmqCnBpLtw7vvwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
         { nombre: "POLLO GRANJERO", envioGratis: false, img: "https://tse2.mm.bing.net/th/id/OIP.o0i_j3gt56YaiL7XiTpfgAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
         { nombre: "DOMINOS EXPRESS", envioGratis: false, img: "https://tse4.mm.bing.net/th/id/OIP.y0F_StlyjW83DR4e5klmZwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
@@ -43,7 +42,6 @@ const infoRestaurantes = {
     "CEVICHES FISH EXPRESS": { envioGratis: true },
     "TAQUERO MUCHO": { envioGratis: true },
     "POLLO DELY ROSY": { envioGratis: true },
-    "LA ESQUITERA": { envioGratis: false },
     "LA SICILIANA": { envioGratis: false },
     "POLLO GRANJERO": { envioGratis: false },
     "DOMINOS EXPRESS": { envioGratis: false },
@@ -102,12 +100,6 @@ const menus = {
         { nombre: "Papas Locas", precio: 15, descripcion: "Papas fritas con salsa y mayonesa", imagen: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcnibWid62HSACJCV9jl2pbaLD0xj-XybCaS6AR_GCix25V9xBbEWNMVPOjuIXDH10_7XAyAlFa5Au3GsMv27ZjVVArSq7hwomRSM-j1Bt37dUKXuc82mXF7h_lQOq_O_POXPtKvg?key=ls6I_YEY3fzKA7j1A3GHLg" },
         { nombre: "Gaseosa en lata", precio: 8, descripcion: "Bebida gaseosa Coca Cola en lata.", imagen: "img/cocacola.webp" }
     ],
-    "LA ESQUITERA": [
-        { nombre: "ESQUITE NORMAL ", precio: 25, descripcion: "granos de maiz con queso, salsa,mayonesa y chips", imagen: "https://img.freepik.com/premium-photo/esquite-mexican-corn-salad-traditional-street-food-from-mexico_338367-2311.jpg?w=300" },
-        { nombre: "ESQUITE GRANDE", precio: 35, descripcion: "granos de maiz con queso, salsa,mayonesa y chips", imagen: "https://img.freepik.com/premium-photo/esquite-mexican-corn-salad-traditional-street-food-from-mexico_338367-2311.jpg?w=300" },
-        { nombre: "SOPA MARUCHAN", precio: 37, descripcion: "sopa maruchan original preparada", imagen: "https://aygueylansing.com/wp-content/uploads/2023/11/SopaMaruchanPreparada.png" },
-        { nombre: "Gaseosa en lata", precio: 8, descripcion: "Bebida gaseosa Coca Cola en lata.", imagen: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300" }
-    ],
     "LA SICILIANA": [
         { nombre: "Pizza Personal", precio: 20, descripcion: "Pizza individual de 4 rebanadas horneada en piedra con salsa de tomate y queso mozzarella.", imagen: "img/personal-sici.webp" },
         { nombre: "Pizza Carnilover", precio: 65, descripcion: "Pizza grande cargada con pepperoni, salchicha italiana, jamón, tocino crocante y extra queso.", imagen: "img/carnilover-sici.webp" },
@@ -147,9 +139,16 @@ const menus = {
         { nombre: "gaseosa en lata", precio: 6, descripcion: "Lata personal de gaseosa salvavidas surtida.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg", opciones: ["Uva", "Limón", "Naranja", "Cola"] }
     ], 
     "LA NEVERIA": [
-        { nombre: "Helado wafle", precio: 12, descripcion: "cono normal con una bola de helado", imagen: "img/wafle.webp", opciones: ["Vainilla", "Chocolate", "Fresa", "Menta"] },
-        { nombre: "Banana split", precio: 25, descripcion: "3 bolas de helado acompañadas de banano y galleta", imagen: "img/banana-split.webp" },
-        { nombre: "Sundae", precio: 22, descripcion: "3 bolas de rico helado", imagen: "img/sundae.webp", opciones: ["Vainilla con Chocolate", "Fresa", "Mixto"] },
+        { nombre: "Helado wafle", precio: 13, descripcion: "cono normal con una bola de helado", imagen: "img/wafle.webp", opciones: ["Vainilla", "Chocolate", "Fresa", "Menta"] },
+        { nombre: "Wafle Doble", precio: 19, descripcion: "cono normal con dos bolas de helado", imagen: "" },
+        { nombre: "Choco Wafle", precio: 17, descripcion: "cono con chocolate y una bola de helado", imagen: "" },
+        { nombre: "Litro de helado", precio: 35, descripcion: "sabor a tu eleccion, no incluye conos", imagen: "" },
+        { nombre: "Medio Galon de Helado", precio: 12, descripcion: "no incluye conos, el descuento de la promocion se hace al completar su pedido",etiqueta: "promo 2xQ95", imagen: "" },
+        { nombre: "choco banana", precio: 31, descripcion: "porcion para una persona", imagen: "img/3leches.webp" },
+        { nombre: "Banana topper", precio: 32, descripcion: "porcion para una persona", imagen: "img/3leches.webp" },
+        { nombre: "Banana split", precio: 30, descripcion: "3 bolas de helado acompañadas de banano y galleta", imagen: "img/banana-split.webp" },
+        { nombre: "Cafe Helado", precio: 27, descripcion: "porcion para una persona",opciones: ["caramelo","chocolate","chocogalleta","mocca", "cookies and creame"], imagen: "img/3leches.webp" },
+        { nombre: "Sundae", precio: 25, descripcion: "3 bolas de rico helado", imagen: "img/sundae.webp", opciones: ["Vainilla", "Chocolate", "Fresa"] },
         { nombre: "Pastel de Helado pequeño", precio: 75, descripcion: "de 4 a 6 porciones segun medida", imagen: "img/pastel-pe.webp" },
         { nombre: "Pastel de Helado Mediano", precio: 95, descripcion: "pastel de 8 a 12 porciones segun medida", imagen: "img/pastel-g.webp" },
         { nombre: "Pastel de Helado Grande", precio: 140, descripcion: "pastel de 16 a 20 porciones segun medida", imagen: "img/pastel-pe.webp" }
@@ -200,7 +199,7 @@ const menus = {
         { nombre: "libra de ejote", precio: 13, descripcion: "ejote grande y tierno", imagen: "img/ejote.webp" }
     ],
     "CARNICERIA EL RANCHO": [
-        { nombre: "Libra de Carne simple", precio: 35, descripcion: ", Corte fino, carne fresca", imagen: "https://carnesideal.tienda/cdn/shop/products/RES58-1_7d85edfa-86a8-4dcd-b56e-30ac1a296c49_800x.jpg?v=1627841553" },
+        { nombre: "Libra de Carne simple", precio: 38, descripcion: ", Corte fino, carne fresca", imagen: "https://carnesideal.tienda/cdn/shop/products/RES58-1_7d85edfa-86a8-4dcd-b56e-30ac1a296c49_800x.jpg?v=1627841553" },
         { nombre: "Libra de Carne Preparada", precio: 40, descripcion: ", Carne fresca, corte fino y preparacion ideal para churrasco", imagen: "https://carnesnaveda.pe/wp-content/uploads/2023/03/churrascos.jpg" },
         { nombre: "Libra de hueso", precio: 28, descripcion: " Hueso con carne ideal para caldos", imagen: "https://amazingribs.com/wp-content/uploads/2025/08/beef-short-ribs-1200.jpeg" },
         { nombre: "Libra de Carne molida", precio: 30, descripcion: ", Carne fresca del dia", imagen: "https://superxtrapanama.vtexassets.com/arquivos/ids/162811-800-auto?v=637896282367100000&width=800&height=auto&aspect=true" },
