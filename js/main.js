@@ -131,12 +131,12 @@ const menus = {
         { nombre: "Pepsi 1 Litro", precio: 8, descripcion: "Bebida familiar refrescante Pepsi de 1 L.", imagen: "img/pepsi.webp" }
     ],
     "CARNITAS EL GORDO": [
-        { nombre: "Libra de Carnitas", precio: 55, descripcion: "Carne de cerdo frita en su propia grasa bien doradita por fuera y suave por dentro", imagen: "img/carnitas.webp" },
-        { nombre: "Media Libra de Carnitas", precio: 30, descripcion: "Media libra de crujiente carnita de cerdo acompañada de rábanos picado", imagen: "img/carnitas.webp" },
-        { nombre: "Porcion de Mushque", precio: 15, descripcion: "Delicioso chicharrón picadito en pasta con especias regionales tradicionales.", imagen: "img/mushque.webp" },
-        { nombre: "Docena de Longaniza", precio: 12, descripcion: "12 longanizas asadas con hierbas aromáticas y ajo listas para disfrutar.", imagen: "img/longas.webp" },
-        { nombre: "1 litro de Pepsi", precio: 8, descripcion: "Botella helada de 1 litro.", imagen: "img/pepsi.webp" },
-        { nombre: "gaseosa en lata", precio: 6, descripcion: "Lata personal de gaseosa salvavidas surtida.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg", opciones: ["Uva", "Limón", "Naranja", "Cola"] }
+        { nombre: "Libra de Carnitas", precio: 55, etiqueta: "disponible muy pronto", descripcion: "Carne de cerdo frita en su propia grasa bien doradita por fuera y suave por dentro", imagen: "img/carnitas.webp" },
+        { nombre: "Media Libra de Carnitas", precio: 30, etiqueta: "disponible muy pronto", descripcion: "Media libra de crujiente carnita de cerdo acompañada de rábanos picado", imagen: "img/carnitas.webp" },
+        { nombre: "Porcion de Mushque", precio: 15, etiqueta: "disponible muy pronto", descripcion: "Delicioso chicharrón picadito en pasta con especias regionales tradicionales.", imagen: "img/mushque.webp" },
+        { nombre: "Docena de Longaniza", precio: 12, etiqueta: "disponible muy pronto", descripcion: "12 longanizas asadas con hierbas aromáticas y ajo listas para disfrutar.", imagen: "img/longas.webp" },
+        { nombre: "1 litro de Pepsi", precio: 8, etiqueta: "disponible muy pronto", descripcion: "Botella helada de 1 litro.", imagen: "img/pepsi.webp" },
+        { nombre: "gaseosa en lata", precio: 6, etiqueta: "disponible muy pronto", descripcion: "Lata personal de gaseosa salvavidas surtida.", imagen: "https://salvavidasenlinea.com.gt/wp-content/uploads/2025/01/Foto_AppTuHogar_1500px_BLUE-800x800.jpg", opciones: ["Uva", "Limón", "Naranja", "Cola"] }
     ], 
     "LA NEVERIA": [
         { nombre: "Helado wafle", precio: 14, descripcion: "cono normal con una bola de helado", imagen: "img/wafle.webp", opciones: ["Vainilla", "Chocolate", "Fresa", "napolitano"] },
@@ -256,8 +256,8 @@ const menus = {
         { nombre: "Almohada Blanca 2und", precio: 70, descripcion: "tamaño mediano de 74x48cm ", imagen: "img/almohada-blanca.webp", etiqueta: "entrega de 5-8 dias por fabricacion"}
     ],
     "ELECTRÓNICA EXPRESS": [
-        { nombre: "Type-C", precio: 45, descripcion: "Cable de carga rápida", imagen: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300" },
-        { nombre: "Audífonos Bluetooth Inalámbricos", precio: 95, descripcion: "Controles táctiles y estuche de carga.", imagen: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300" }
+        { nombre: "Type-C", precio: 45, etiqueta: "disponible muy pronto", descripcion: "Cable de carga rápida", imagen: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300" },
+        { nombre: "Audífonos Bluetooth Inalámbricos", precio: 95, etiqueta: "disponible muy pronto", descripcion: "Controles táctiles y estuche de carga.", imagen: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300" }
     ]
 };
 
